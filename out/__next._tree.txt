@@ -1,4 +1,4 @@
-:HL["/_next/static/chunks/0et-apn_yq8lo.css","style"]
+:HL["/avtomoe/_next/static/chunks/12s6w_-8ml0_r.css","style"]
 :HL["/img/makes/toyota-logo.svg","image"]
 :HL["/img/makes/lexus-logo.png","image"]
 :HL["/img/makes/nissan-logo.svg","image"]
@@ -19,4 +19,4 @@
 :HL["/img/makes/opel-logo.svg","image"]
 :HL["/img/makes/ford-logo.png","image"]
 :HL["/img/makes/chevrolet-logo.png","image"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}},"staleTime":300,"buildId":"zfqnOO3bWq3HulLP0z-Aq"}
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}},"staleTime":300,"buildId":"YFtfmEIkHM_XG8Xu53jrZ"}
