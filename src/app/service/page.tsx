@@ -63,15 +63,15 @@ const ICONS: Record<string, LucideIcon> = {
 };
 
 const whatWeDoServices = [
-  { id: 1, title: 'Замена масла в ДВС', price: 'от 1 000 ₽', hit: true },
-  { id: 2, title: 'Техническое обслуживание', price: 'от 5 980 ₽', hit: true },
-  { id: 3, title: 'Шиномонтаж с балансировкой', price: 'от 2 200 ₽', hit: true },
-  { id: 4, title: 'Диагностика электрооборудования', price: 'от 2 000 ₽', hit: false },
-  { id: 5, title: 'Развал / схождение', price: 'от 2 600 ₽', hit: false },
-  { id: 6, title: 'Ремонт подвески', price: 'от 1 000 ₽', hit: false },
-  { id: 7, title: 'Ремонт двигателей', price: 'от 28 000 ₽', hit: false },
-  { id: 8, title: 'Полировка фар', price: 'от 1 500 ₽', hit: false },
-  { id: 9, title: 'Восстановление фар', price: 'от 3 000 ₽', hit: false },
+  { id: 1, title: 'Замена масла в ДВС', price: 'от 1 000 ₽', icon: Droplets, image: '/img/services/oil-change.jpg', hit: true },
+  { id: 2, title: 'Техническое обслуживание', price: 'от 5 980 ₽', icon: ClipboardCheck, image: '/img/services/tech-maintenance.jpg', hit: true },
+  { id: 3, title: 'Шиномонтаж с балансировкой', price: 'от 2 200 ₽', icon: Disc3, hit: true },
+  { id: 4, title: 'Диагностика электрооборудования', price: 'от 2 000 ₽', icon: Cpu, hit: false },
+  { id: 5, title: 'Развал / схождение', price: 'от 2 600 ₽', icon: Crosshair, hit: false },
+  { id: 6, title: 'Ремонт подвески', price: 'от 1 000 ₽', icon: CircleDot, hit: false },
+  { id: 7, title: 'Ремонт двигателей', price: 'от 28 000 ₽', icon: Wrench, hit: false },
+  { id: 8, title: 'Полировка фар', price: 'от 1 500 ₽', icon: Sparkles, hit: false },
+  { id: 9, title: 'Восстановление фар', price: 'от 3 000 ₽', icon: ShieldCheck, hit: false },
 ];
 
 const promotions = [
@@ -259,12 +259,24 @@ export default async function ServicePage() {
                   </div>
                 )}
 
-                {/* Placeholder Image (Left) */}
-                <div className="relative w-[130px] shrink-0 bg-slate-50 flex items-center justify-center p-3 text-center border-r border-slate-100/50">
-                  <span className="text-slate-300 font-bold text-[9px] uppercase tracking-widest opacity-60">
-                    Место под фото
-                  </span>
-                </div>
+                {/* Image or Placeholder (Left) */}
+                {s.image ? (
+                  <div className="relative w-[130px] shrink-0 overflow-hidden bg-slate-950 border-r border-slate-100/50">
+                    <Image
+                      src={s.image}
+                      alt={s.title}
+                      fill
+                      sizes="130px"
+                      className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                    />
+                  </div>
+                ) : (
+                  <div className="relative w-[130px] shrink-0 bg-slate-50 flex items-center justify-center p-3 text-center border-r border-slate-100/50">
+                    <span className="text-slate-300 font-bold text-[9px] uppercase tracking-widest opacity-60">
+                      Место под фото
+                    </span>
+                  </div>
+                )}
 
                 {/* Content (Right) */}
                 <div className="flex flex-1 flex-col justify-between p-5">
