@@ -21,26 +21,12 @@ export const metadata: Metadata = {
     "35 000+ запчастей в наличии, собственный бренд, работа 24/7 и бесплатная доставка. Подберём подходящую деталь по VIN, быстро оформим заказ и дадим гарантию.",
 };
 
-export const dynamic = "force-dynamic";
+
 
 const one = (v: string | string[] | undefined) => (Array.isArray(v) ? v[0] : v);
 
-export default async function CatalogPage({
-  searchParams,
-}: {
-  searchParams: Promise<Record<string, string | string[] | undefined>>;
-}) {
-  const sp = await searchParams;
-
-  const query: CatalogQuery = {
-    cat: one(sp.cat) || undefined,
-    q: one(sp.q) || undefined,
-    brand: one(sp.brand)?.split(",").filter(Boolean),
-    make: one(sp.make)?.split(",").filter(Boolean),
-    min: one(sp.min) ? Number(one(sp.min)) : undefined,
-    max: one(sp.max) ? Number(one(sp.max)) : undefined,
-    sort: one(sp.sort) || undefined,
-  };
+export default async function CatalogPage() {
+  const query: CatalogQuery = {};
 
   const [{ items, category }, facets, featured] = await Promise.all([getCatalog(query), getFacets(), getFeaturedProducts(8)]);
 

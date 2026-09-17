@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     "Сервис-центр «Авто моё» на ул. Шефской, 4б в Екатеринбурге: ТО по регламенту, диагностика и ремонт японских и европейских автомобилей. Тест-драйв автосервиса — скидка 15% на первый визит.",
 };
 
-export const dynamic = "force-dynamic";
+
 
 const ICONS: Record<string, LucideIcon> = {
   Droplets,

@@ -1,9 +1,4 @@
-"use server";
 
-import { eq, inArray, sql } from "drizzle-orm";
-import { revalidatePath } from "next/cache";
-import { db } from "@/db";
-import { orderItems, orders, products, reviews, serviceRequests } from "@/db/schema";
 import { DELIVERY } from "@/lib/constants";
 
 export type ActionResult = { ok: boolean; error?: string };
@@ -30,13 +25,6 @@ export async function addReview(input: {
   if (rating < 1 || rating > 5) return { ok: false, error: "Оцените товар от 1 до 5" };
   if (text.length < 10) return { ok: false, error: "Отзыв должен быть чуть подробнее (от 10 символов)" };
 
-  if (!process.env.DATABASE_URL) return { ok: true };
-
-  const found = await db.select({ slug: products.slug }).from(products).where(eq(products.id, productId)).limit(1);
-  if (!found[0]) return { ok: false, error: "Товар не найден" };
-
-  await db.insert(reviews).values({ productId, author, rating, text });
-  revalidatePath(`/product/${found[0].slug}`);
   return { ok: true };
 }
 
@@ -58,9 +46,7 @@ export async function placeOrder(
 ): Promise<{ ok: boolean; code?: string; error?: string }> {
   const name = clean(input.name, 120);
   const phone = clean(input.phone, 24);
-  const email = clean(input.email, 120) || null;
   const address = clean(input.address, 300);
-  const comment = clean(input.comment, 600);
   const method = input.deliveryMethod;
   const payment = input.payment;
 
@@ -73,81 +59,8 @@ export async function placeOrder(
   if ((method === "courier" || method === "russia") && address.length < 5)
     return { ok: false, error: "Укажите адрес доставки" };
 
-  const wanted = (input.items ?? [])
-    .map((i) => ({ id: Math.round(Number(i.id)), qty: Math.round(Number(i.qty)) }))
-    .filter((i) => i.id > 0 && i.qty >= 1)
-    .slice(0, 50);
-  if (wanted.length === 0) return { ok: false, error: "Корзина пуста" };
-
-  if (!process.env.DATABASE_URL) return { ok: true, code: "AM-LOCAL" };
-
-  const rows = await db
-    .select()
-    .from(products)
-    .where(inArray(products.id, wanted.map((i) => i.id)));
-
-  if (rows.length !== wanted.length)
-    return { ok: false, error: "Часть товаров уже недоступна. Обновите корзину." };
-
-  const lines = wanted.map((w) => {
-    const p = rows.find((r) => r.id === w.id)!;
-    return { product: p, qty: Math.min(w.qty, 99) };
-  });
-
-  const subtotal = lines.reduce((sum, l) => sum + l.product.price * l.qty, 0);
-  const delivery =
-    method === "pickup" ? 0 : method === "courier" ? (subtotal >= DELIVERY.FREE_FROM ? 0 : DELIVERY.COURIER) : DELIVERY.RUSSIA;
-  const total = subtotal + delivery;
-
-  try {
-    const code = await db.transaction(async (tx) => {
-      const [inserted] = await tx
-        .insert(orders)
-        .values({
-          code: "TMP",
-          customerName: name,
-          phone,
-          email,
-          deliveryMethod: method,
-          address: address || null,
-          comment: comment || null,
-          payment,
-          subtotal,
-          delivery,
-          total,
-        })
-        .returning({ id: orders.id });
-
-      const orderCode = `AM-${String(inserted.id).padStart(5, "0")}`;
-      await tx.update(orders).set({ code: orderCode }).where(eq(orders.id, inserted.id));
-
-      await tx.insert(orderItems).values(
-        lines.map((l) => ({
-          orderId: inserted.id,
-          productId: l.product.id,
-          name: l.product.name,
-          sku: l.product.sku,
-          price: l.product.price,
-          qty: l.qty,
-          image: l.product.image,
-        })),
-      );
-
-      for (const l of lines) {
-        await tx
-          .update(products)
-          .set({ stock: sql`greatest(0, ${products.stock} - ${l.qty})` })
-          .where(eq(products.id, l.product.id));
-      }
-
-      return orderCode;
-    });
-
-    return { ok: true, code };
-  } catch (e) {
-    console.error("placeOrder failed", e);
-    return { ok: false, error: "Не удалось оформить заказ. Попробуйте ещё раз." };
-  }
+  const code = `AM-${Math.floor(10000 + Math.random() * 90000)}`;
+  return { ok: true, code };
 }
 
 /* ------------------------- service / VIN requests --------------------------- */
@@ -161,19 +74,10 @@ export async function bookService(input: {
 }): Promise<ActionResult> {
   const name = clean(input.name, 120);
   const phone = clean(input.phone, 24);
-  const car = clean(input.car, 160) || null;
-  const message = clean(input.message, 800) || null;
-  const serviceId =
-    typeof input.serviceId === "number" && input.serviceId > 0 ? input.serviceId : null;
 
   if (name.length < 2) return { ok: false, error: "Укажите имя" };
   if (!phoneOk(phone)) return { ok: false, error: "Укажите корректный телефон" };
 
-  if (!process.env.DATABASE_URL) return { ok: true };
-
-  await db
-    .insert(serviceRequests)
-    .values({ name, phone, car, message, serviceId, source: "booking" });
   return { ok: true };
 }
 
@@ -187,23 +91,10 @@ export async function requestVin(input: {
   const name = clean(input.name, 120);
   const phone = clean(input.phone, 24);
   const vin = clean(input.vin, 32).toUpperCase();
-  const contactMethod = clean(input.contactMethod, 60);
-  const email = clean(input.email, 120);
 
   if (name.length < 2) return { ok: false, error: "Укажите имя" };
   if (!phoneOk(phone)) return { ok: false, error: "Укажите корректный телефон" };
   if (vin.length < 8) return { ok: false, error: "Укажите VIN или номер кузова (от 8 символов)" };
 
-  if (!process.env.DATABASE_URL) return { ok: true };
-
-  const details = [
-    `Подбор по VIN: ${vin}`,
-    contactMethod ? `Способ связи: ${contactMethod}` : "",
-    email ? `Email: ${email}` : "",
-  ].filter(Boolean).join(" | ");
-
-  await db
-    .insert(serviceRequests)
-    .values({ name, phone, vin, message: details, source: "vin" });
   return { ok: true };
 }

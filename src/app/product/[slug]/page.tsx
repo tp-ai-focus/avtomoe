@@ -21,7 +21,13 @@ import { Reveal } from "@/components/Reveal";
 import { getProductBySlug, getRelatedProducts } from "@/lib/data";
 import { discountPercent, formatDate, formatPrice, plural } from "@/lib/format";
 
-export const dynamic = "force-dynamic";
+import { PRODUCTS } from "@/lib/mock-data";
+
+export async function generateStaticParams() {
+  return PRODUCTS.map((p) => ({
+    slug: p.slug,
+  }));
+}
 
 export async function generateMetadata({
   params,

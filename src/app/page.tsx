@@ -22,7 +22,7 @@ import { HeroButtons } from "@/components/HeroButtons";
 import { MAKE_GROUPS, MAKES, PHONE_DISPLAY, PHONE_HREF, TELEGRAM_URL } from "@/lib/constants";
 import { getFacets, getFeaturedProducts } from "@/lib/data";
 
-export const dynamic = "force-dynamic";
+
 
 
 
