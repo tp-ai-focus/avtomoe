@@ -14,6 +14,8 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import fs from "fs";
+import path from "path";
 import { ProductCard } from "@/components/ProductCard";
 import { Reveal } from "@/components/Reveal";
 import { VinForm } from "@/components/VinForm";
@@ -53,14 +55,24 @@ const PROMOS = [
   { img: "/img/promo/kashback.jpg", title: "Кэшбэк бонусами", text: "Возвращаем бонусы с каждой покупки — оплачивайте ими до 30% следующего заказа." },
   { img: "/img/promo/zamenamasla.jpg", title: "Бесплатная замена масла", text: "Купили масло у нас — заменим бесплатно в сервис-центре на Шефской, 4б." },
   { img: "/img/promo/bestprice.jpg", title: "Гарантия лучшей цены", text: "Нашли запчасть дешевле — сделаем цену ещё лучше. Просто покажите предложение." },
-  { img: "/img/promo/500-rublej-za-podpisku.jpg", title: "500 ₽ за подписку", text: "Подпишитесь на нас в соцсетях и получите 500 бонусных рублей на счёт." },
+  { img: "/img/promo/dostavka.jpg", title: "Бесплатная доставка", text: "Бесплатная доставка по Екатеринбургу при заказе от 3 000 ₽. Привезём прямо до двери за 60–90 минут." },
 ];
+
+/** Читаем SVG-файл с диска и возвращаем его содержимое как строку (только для .svg). */
+function readSvgFile(filename: string): string | null {
+  if (!filename.endsWith(".svg")) return null;
+  try {
+    const filePath = path.join(process.cwd(), "public", "img", "makes", filename);
+    return fs.readFileSync(filePath, "utf-8");
+  } catch {
+    return null;
+  }
+}
 
 export default async function HomePage() {
   const [featured, facets] = await Promise.all([getFeaturedProducts(8), getFacets()]);
 
   const marqueeMakes = MAKE_GROUPS.flatMap((g) => g.makes).map((m) => ({ key: m, label: MAKES[m] }));
-
 
 
   return (
@@ -192,16 +204,27 @@ export default async function HomePage() {
           }}
         >
           <div className="flex w-max animate-marquee items-center gap-12">
-            {[...marqueeMakes, ...marqueeMakes].map((m, i) => (
-              <span key={i} className="flex items-center gap-12" aria-hidden={i >= marqueeMakes.length}>
-                <img
-                  src={`/img/makes/${MAKE_LOGOS[m.key]}`}
-                  alt={m.label}
-                  title={m.label}
-                  className="h-7 w-auto opacity-45 grayscale transition duration-300 hover:opacity-85 hover:grayscale-0 md:h-9"
-                />
-              </span>
-            ))}
+            {[...marqueeMakes, ...marqueeMakes].map((m, i) => {
+              const filename = MAKE_LOGOS[m.key];
+              const svgContent = filename ? readSvgFile(filename) : null;
+              return (
+                <span key={i} className="flex items-center" aria-hidden={i >= marqueeMakes.length} title={m.label}>
+                  {svgContent ? (
+                    <span
+                      dangerouslySetInnerHTML={{ __html: svgContent }}
+                      className="block h-7 w-auto opacity-45 grayscale transition duration-300 hover:opacity-85 hover:grayscale-0 md:h-9 [&_svg]:h-full [&_svg]:w-auto [&_svg]:max-w-[80px]"
+                      aria-label={m.label}
+                    />
+                  ) : filename ? (
+                    <img
+                      src={`/img/makes/${filename}`}
+                      alt={m.label}
+                      className="h-7 w-auto max-w-[80px] opacity-45 grayscale transition duration-300 hover:opacity-85 hover:grayscale-0 md:h-9"
+                    />
+                  ) : null}
+                </span>
+              );
+            })}
           </div>
         </div>
       </section>
