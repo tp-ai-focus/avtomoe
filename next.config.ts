@@ -7,7 +7,8 @@ const nextConfig: NextConfig = {
   basePath: isProd ? "/avtomoe" : "",
   assetPrefix: isProd ? "/avtomoe" : "",
   images: {
-    unoptimized: true,
+    loader: "custom",
+    loaderFile: "./src/imageLoader.js",
   },
   trailingSlash: true,
 };
