@@ -52,10 +52,10 @@ const MAKE_LOGOS: Record<string, string> = {
 };
 
 const PROMOS = [
-  { img: "/img/promo/kashback.jpg", title: "Кэшбэк бонусами", text: "Возвращаем бонусы с каждой покупки — оплачивайте ими до 30% следующего заказа." },
+  { img: "/img/promo/kashback.jpg", title: "Кэшбэк 5% бонусами", text: "Возвращаем 5% на накопительную карту — оплачивайте бонусами покупки в магазинах сети." },
   { img: "/img/promo/zamenamasla.jpg", title: "Бесплатная замена масла", text: "Купили масло у нас — заменим бесплатно в сервис-центре на Шефской, 4б." },
   { img: "/img/promo/bestprice.jpg", title: "Гарантия лучшей цены", text: "Нашли запчасть дешевле — сделаем цену ещё лучше. Просто покажите предложение." },
-  { img: "/img/promo/dostavka.jpg", title: "Бесплатная доставка", text: "Бесплатная доставка по Екатеринбургу при заказе от 3 000 ₽. Привезём прямо до двери за 60–90 минут." },
+  { img: "/img/promo/dostavka.jpg", title: "Бесплатная доставка по городу", text: "Доставка 0 ₽ при любой сумме заказа. Привезём прямо до двери за 60–90 минут." },
 ];
 
 /** Читаем SVG-файл с диска и возвращаем его содержимое как строку (только для .svg). */
@@ -374,9 +374,17 @@ export default async function HomePage() {
           {PROMOS.map((p, i) => (
             <Reveal key={p.title} delay={(i % 4) * 0.07}>
               <div className="group card h-full overflow-hidden transition hover:border-accent-500/25">
-                {/* Пустота для картинок с голубым фоном */}
+                {/* Место под макет */}
                 <div className="relative aspect-square overflow-hidden bg-[#0076be]/10">
-                  {/* <Image src={p.img} alt={p.title} fill ... /> */}
+                  {p.img && (
+                    <Image
+                      src={p.img}
+                      alt={p.title}
+                      fill
+                      sizes="(max-width: 768px) 50vw, 25vw"
+                      className="object-cover transition duration-500 group-hover:scale-105"
+                    />
+                  )}
                 </div>
                 <div className="p-4 md:p-5">
                   <h3 className="font-display text-[13px] font-extrabold uppercase leading-snug md:text-sm">{p.title}</h3>

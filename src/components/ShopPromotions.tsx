@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { MessageCircle, Phone } from "lucide-react";
 import { MAX_SHOP_CHAT_URL, PHONE_DISPLAY, PHONE_HREF } from "@/lib/constants";
 import { Reveal } from "@/components/Reveal";
@@ -7,6 +8,7 @@ interface ShopPromo {
   id: number;
   title: string;
   description: string;
+  image?: string;
 }
 
 const shopPromotions: ShopPromo[] = [
@@ -14,16 +16,19 @@ const shopPromotions: ShopPromo[] = [
     id: 1,
     title: "Гарантия лучшей цены",
     description: "Нашли деталь дешевле? Сообщите нам, и мы сделаем цену ещё выгоднее!",
+    image: "/img/promo/bestprice.jpg",
   },
   {
     id: 2,
     title: "Кэшбэк 5% бонусами",
     description: "Возвращаем 5% от суммы каждой покупки на накопительную карту магазина.",
+    image: "/img/promo/kashback.jpg",
   },
   {
     id: 3,
-    title: "Бесплатная доставка",
-    description: "Быстро доставим нужные запчасти по городу прямо до двери или сервиса.",
+    title: "Бесплатная доставка по городу",
+    description: "Доставка 0 ₽ при любой сумме заказа. Быстро доставим нужные запчасти прямо до двери или сервиса.",
+    image: "/img/promo/dostavka.jpg",
   },
 ];
 
@@ -44,10 +49,19 @@ export function ShopPromotions() {
           <Reveal key={p.id} delay={i * 0.1}>
             <div className="group relative flex h-full flex-col overflow-hidden rounded-[22px] border border-slate-100 bg-white shadow-sm transition-all hover:border-slate-200 hover:shadow-xl">
               {/* Место под макет / баннер */}
-              <div className="relative flex aspect-[16/9] w-full items-center justify-center border-b border-slate-100 bg-slate-50 p-4 text-center">
-                <span className="text-[10px] font-bold uppercase tracking-widest text-slate-300 opacity-60">
-                  Место под баннер
-                </span>
+              <div className="relative flex aspect-square w-full items-center justify-center overflow-hidden border-b border-slate-100 bg-slate-50 text-center">
+                {p.image ? (
+                  <Image
+                    src={p.image}
+                    alt={p.title}
+                    fill
+                    className="object-cover transition duration-500 group-hover:scale-105"
+                  />
+                ) : (
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-slate-300 opacity-60">
+                    Место под баннер
+                  </span>
+                )}
               </div>
 
               {/* Текстовый контент */}

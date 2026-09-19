@@ -12,6 +12,7 @@ import {
   CheckCircle2,
   ChevronRight
 } from "lucide-react";
+import Image from "next/image";
 import { Reveal } from "@/components/Reveal";
 import { PhoneCallButton } from "@/components/PhoneCallButton";
 import { PromoButton } from "@/components/PromoButton";
@@ -29,12 +30,14 @@ interface ServicePromotion {
   title: string;
   description: string;
   btn1Text: string;
+  image?: string;
 }
 
 interface ShopPromotion {
   id: number;
   title: string;
   description: string;
+  image?: string;
 }
 
 const servicePromotions: ServicePromotion[] = [
@@ -43,24 +46,28 @@ const servicePromotions: ServicePromotion[] = [
     title: "Бесплатная замена масла",
     description: "При покупке моторного масла KHAMAKO и масляного фильтра АВТОМОЁ",
     btn1Text: "Записаться",
+    image: "/img/promo/zamenamasla.jpg",
   },
   {
     id: 3,
     title: "Бесплатная диагностика ходовой",
     description: "По 49 параметрам. Действует в: пн, пт, сб и вс",
     btn1Text: "Записаться",
+    image: "/img/promo/diagnostika.jpg",
   },
   {
     id: 1,
     title: "Гарантия лучшей цены",
     description: "Нашли товар дешевле, мы сделаем скидку!",
     btn1Text: "Получить скидку",
+    image: "/img/promo/bestprice.jpg",
   },
   {
     id: 4,
     title: "Такси до дома",
     description: "Бесплатно отвезем вас домой на такси, пока ваш автомобиль находится в ремонте.",
     btn1Text: "Записаться",
+    image: "/img/promo/taxi.jpg",
   },
 ];
 
@@ -69,16 +76,19 @@ const shopPromotions: ShopPromotion[] = [
     id: 1,
     title: "Гарантия лучшей цены",
     description: "Нашли деталь дешевле? Сообщите нам, и мы сделаем цену ещё выгоднее!",
+    image: "/img/promo/bestprice.jpg",
   },
   {
     id: 2,
     title: "Кэшбэк 5% бонусами",
     description: "Возвращаем 5% от суммы каждой покупки на накопительную карту магазина.",
+    image: "/img/promo/kashback.jpg",
   },
   {
     id: 3,
-    title: "Бесплатная доставка",
-    description: "Быстро доставим нужные запчасти по городу прямо до двери или сервиса.",
+    title: "Бесплатная доставка по городу",
+    description: "Доставка 0 ₽ при любой сумме заказа. Быстро доставим нужные запчасти прямо до двери или сервиса.",
+    image: "/img/promo/dostavka.jpg",
   },
 ];
 
@@ -111,10 +121,19 @@ export function PromotionsClient() {
               <Reveal key={p.id} delay={i * 0.08}>
                 <div className="group relative flex h-full flex-col overflow-hidden rounded-[20px] border border-slate-100 bg-white shadow-sm transition-all duration-300 hover:border-slate-200 hover:shadow-xl hover:-translate-y-1">
                   {/* Место под баннер */}
-                  <div className="relative flex aspect-[16/9] w-full items-center justify-center border-b border-slate-100 bg-slate-50 p-4 text-center">
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-slate-300 opacity-60">
-                      Место под баннер
-                    </span>
+                  <div className="relative flex aspect-square w-full items-center justify-center overflow-hidden border-b border-slate-100 bg-slate-50 text-center">
+                    {p.image ? (
+                      <Image
+                        src={p.image}
+                        alt={p.title}
+                        fill
+                        className="object-cover transition duration-500 group-hover:scale-105"
+                      />
+                    ) : (
+                      <span className="text-[10px] font-bold uppercase tracking-widest text-slate-300 opacity-60">
+                        Место под баннер
+                      </span>
+                    )}
                   </div>
 
                   {/* Текстовая часть */}
@@ -180,10 +199,19 @@ export function PromotionsClient() {
               <Reveal key={p.id} delay={i * 0.1}>
                 <div className="group relative flex h-full flex-col overflow-hidden rounded-[22px] border border-slate-100 bg-white shadow-sm transition-all duration-300 hover:border-slate-200 hover:shadow-xl hover:-translate-y-1">
                   {/* Место под баннер */}
-                  <div className="relative flex aspect-[16/9] w-full items-center justify-center border-b border-slate-100 bg-slate-50 p-4 text-center">
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-slate-300 opacity-60">
-                      Место под баннер
-                    </span>
+                  <div className="relative flex aspect-square w-full items-center justify-center overflow-hidden border-b border-slate-100 bg-slate-50 text-center">
+                    {p.image ? (
+                      <Image
+                        src={p.image}
+                        alt={p.title}
+                        fill
+                        className="object-cover transition duration-500 group-hover:scale-105"
+                      />
+                    ) : (
+                      <span className="text-[10px] font-bold uppercase tracking-widest text-slate-300 opacity-60">
+                        Место под баннер
+                      </span>
+                    )}
                   </div>
 
                   {/* Текстовая часть */}
