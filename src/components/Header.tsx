@@ -2,6 +2,7 @@
 
 import { Clock, MapPin, Menu, Phone, Search, ShoppingCart, Wrench, X, MessageCircle, Send } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import {
@@ -52,9 +53,11 @@ export function Header() {
             {/* Логотипы и локация */}
             <div className="flex items-center gap-5">
               <Link href="/" className="flex-shrink-0 transition-opacity hover:opacity-85" aria-label="Авто Моё">
-                <img
+                <Image
                   src="/img/brand/avtomoe-logo-flags.png"
                   alt="Авто Моё"
+                  width={200}
+                  height={44}
                   className="h-9 w-auto object-contain md:h-11"
                 />
               </Link>
@@ -62,17 +65,21 @@ export function Header() {
               <div className="hidden h-9 items-center gap-5 xl:flex">
                 <div className="h-7 w-px bg-white/20" />
                 <Link href="/" aria-label="Авто Японец" className="transition-opacity hover:opacity-85">
-                  <img
+                  <Image
                     src="/img/brand/logo-japonec.svg"
                     alt="Авто Японец"
+                    width={150}
+                    height={36}
                     className="h-7 w-auto object-contain md:h-9"
                   />
                 </Link>
                 <div className="h-7 w-px bg-white/20" />
                 <Link href="/" aria-label="Авто Европеец" className="transition-opacity hover:opacity-85">
-                  <img
+                  <Image
                     src="/img/brand/logo-evropeets.svg"
                     alt="Авто Европеец"
+                    width={150}
+                    height={36}
                     className="h-7 w-auto object-contain md:h-9"
                   />
                 </Link>

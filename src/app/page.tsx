@@ -216,9 +216,11 @@ export default async function HomePage() {
                       aria-label={m.label}
                     />
                   ) : filename ? (
-                    <img
+                    <Image
                       src={`/img/makes/${filename}`}
                       alt={m.label}
+                      width={80}
+                      height={36}
                       className="h-7 w-auto max-w-[80px] opacity-45 grayscale transition duration-300 hover:opacity-85 hover:grayscale-0 md:h-9"
                     />
                   ) : null}
