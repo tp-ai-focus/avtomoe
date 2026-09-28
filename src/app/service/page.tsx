@@ -441,10 +441,10 @@ export default async function ServicePage() {
                 </div>
 
                 <div className="flex items-center gap-3">
-                  <div className="rounded-full bg-red-500/20 p-1 shrink-0">
-                    <Clock size={16} className="text-red-400" />
+                  <div className="rounded-full bg-amber-400/20 p-1 shrink-0">
+                    <Clock size={16} className="text-amber-400" />
                   </div>
-                  <p className="text-red-200 font-extrabold uppercase tracking-wide">Работаем 24/7</p>
+                  <p className="text-amber-400 font-extrabold uppercase tracking-wide">Работаем 24/7</p>
                 </div>
               </div>
               
