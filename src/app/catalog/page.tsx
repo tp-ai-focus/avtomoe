@@ -226,7 +226,7 @@ export default async function CatalogPage() {
       <ShopMapSection />
 
       {/* ---------------------------- НАМ ДОВЕРЯЮТ (ОТЗЫВЫ ПО МАГАЗИНАМ) ---------------------------- */}
-      <section id="reviews" className="wrap scroll-mt-24 pt-20 pb-20 md:pt-28 md:pb-28">
+      <section id="reviews" className="wrap scroll-mt-24 pt-16 pb-6 md:pt-28 md:pb-16">
         <Reveal>
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
             <div>

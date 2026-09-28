@@ -99,8 +99,8 @@ export function ShopMapSection() {
     shopLocations.find((loc) => loc.id === activeId) || shopLocations[0];
 
   return (
-    <section className="pt-20 md:pt-28">
-      <div className="wrap mb-10">
+    <section className="pt-8 md:pt-16">
+      <div className="wrap mb-4 md:mb-8">
         <Reveal>
           <div className="flex flex-col items-start gap-2.5">
             <p className="section-subtitle">Локация</p>

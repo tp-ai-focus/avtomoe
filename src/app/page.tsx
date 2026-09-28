@@ -379,7 +379,7 @@ export default async function HomePage() {
               <Reveal delay={0.3}>
                 <Link
                   href="/installment"
-                  className="inline-flex items-center gap-2 rounded-lg bg-white px-8 py-3 text-sm font-bold uppercase tracking-widest text-slate-900 shadow-sm transition-all active:scale-95"
+                  className="inline-flex items-center gap-2 rounded-lg bg-amber-400 px-8 py-3 text-sm font-bold uppercase tracking-widest text-slate-900 shadow-md shadow-amber-500/20 transition-all active:scale-95"
                 >
                   Подробнее
                 </Link>
@@ -567,7 +567,7 @@ export default async function HomePage() {
           <div className="relative overflow-hidden rounded-xl md:rounded-3xl bg-brand-gradient p-6 md:p-14">
             <div className="absolute -left-32 -bottom-32 h-80 w-80 rounded-full bg-accent-400/25 blur-[120px]" />
             <p className="pointer-events-none absolute -right-4 -top-10 select-none font-display text-[160px] font-extrabold leading-none text-outline-light opacity-40 md:text-[240px]">
-              15%
+              <span className="hidden md:inline">-</span>15%
             </p>
             <p className="text-[11px] font-bold uppercase tracking-[0.28em] text-white">Акция</p>
             <h2 className="relative mt-5 max-w-lg font-display text-3xl font-extrabold uppercase leading-tight text-white md:text-4xl">
