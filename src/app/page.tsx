@@ -91,17 +91,31 @@ export default async function HomePage() {
           <div className="absolute inset-0 bg-gradient-to-r from-[#00578a]/80 to-transparent" />
         </div>
 
-        <div className="wrap relative flex min-h-[92svh] flex-col justify-center py-24">
+        <div className="wrap relative flex min-h-[80svh] lg:min-h-[92svh] flex-col justify-start md:justify-center pt-10 pb-16 md:py-24">
           <Reveal delay={0.08}>
-            <h1 className="mt-4 font-display text-[7vw] font-extrabold uppercase leading-[1.1] tracking-tight text-white sm:text-5xl lg:text-6xl xl:text-[68px]">
+            <h1 className="mt-2 md:mt-4 font-display text-[7.5vw] font-extrabold uppercase leading-[1.1] tracking-tight text-white sm:text-5xl lg:text-6xl xl:text-[68px]">
               ЗАПЧАСТИ ДЛЯ <span className="text-[#89d7fb]">ЯПОНСКИХ</span><br />
-              <span className="text-[5vw] sm:text-4xl lg:text-5xl font-semibold text-white/90 normal-case tracking-normal">и европейских авто</span>
+              И <span className="text-[#89d7fb]">ЕВРОПЕЙСКИХ</span> АВТО
             </h1>
-            <div className="mt-6 flex items-center gap-4">
-              <div className="h-1.5 w-10 bg-[#89d7fb] rounded-full"></div>
-              <p className="font-display text-xl sm:text-2xl font-bold text-white uppercase tracking-wider">
-                Собственный сервисный центр
-              </p>
+            <div className="mt-6 flex items-center gap-4 group">
+              <div className="h-1.5 w-10 bg-[#89d7fb] rounded-full hidden sm:block"></div>
+              <div className="relative px-8 py-4 flex items-center justify-center transition-transform hover:scale-[1.02]">
+                {/* Фоновый реалистичный след от шины с размытыми краями и текстурой */}
+                <div 
+                  className="absolute inset-0 pointer-events-none drop-shadow-md"
+                  style={{
+                    backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='100' preserveAspectRatio='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cfilter id='blur' x='-20%25' y='-20%25' width='140%25' height='140%25'%3E%3CfeGaussianBlur stdDeviation='2.5' /%3E%3C/filter%3E%3C/defs%3E%3Crect x='0' y='18' width='60' height='64' fill='%23ef4444' /%3E%3Cg fill='%23ef4444' filter='url(%23blur)' opacity='0.85'%3E%3Cpath d='M 4 20 L 16 0 L 32 0 L 20 20 Z' /%3E%3Cpath d='M 34 20 L 46 0 L 62 0 L 50 20 Z' /%3E%3Cpath d='M 4 80 L 16 100 L 32 100 L 20 80 Z' /%3E%3Cpath d='M 34 80 L 46 100 L 62 100 L 50 80 Z' /%3E%3C/g%3E%3C/svg%3E")`,
+                    backgroundSize: '60px 100%',
+                    backgroundRepeat: 'repeat-x',
+                    WebkitMaskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)',
+                    maskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)'
+                  }}
+                />
+                {/* Текст поверх фона */}
+                <p className="relative z-10 font-display text-xl sm:text-2xl font-bold text-white uppercase tracking-wider drop-shadow-sm">
+                  Собственный сервисный центр
+                </p>
+              </div>
             </div>
           </Reveal>
 
@@ -117,78 +131,82 @@ export default async function HomePage() {
           </Reveal>
 
           <Reveal delay={0.34}>
-            <div className="mt-8 flex flex-col items-center gap-6 border-t border-white/15 pt-7 sm:flex-row sm:justify-center xl:gap-10">
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-4 sm:gap-6 border-t border-white/15 pt-6">
 
-              {/* 35 000+ */}
-              <div className="text-center">
-                <dt className="font-display text-2xl font-semibold tracking-tight text-white md:text-3xl">
-                  35 000+
-                </dt>
-                <dd className="mt-1 text-[11px] font-normal leading-snug text-white/50 uppercase tracking-widest">запчастей в наличии</dd>
+              {/* 50 000+ */}
+              <div className="flex items-center gap-2">
+                <span className="font-display text-xl font-bold tracking-tight text-white md:text-2xl">
+                  50 000+
+                </span>
+                <span className="text-[10px] font-medium leading-[1.1] text-white/60 uppercase tracking-wide md:text-[11px]">
+                  запчастей<br />в наличии
+                </span>
               </div>
 
               {/* Разделитель */}
-              <div className="hidden h-10 w-px bg-white/20 sm:block" />
+              <div className="h-6 w-px bg-white/20" />
 
-              {/* Рейтинги */}
-              <div className="flex flex-wrap items-center justify-center gap-5 sm:gap-8">
+              {/* 2ГИС 4,9 */}
+              <a
+                href="https://2gis.ru/ekaterinburg/search/Автояпонец%20Сахарова%2C%20107%2F2/firm/70000001110998814?m=60.500637%2C56.792667%2F16.87%2Fp%2F0.36%2Fr%2F-129.05"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 transition-opacity hover:opacity-80"
+                title="Наш рейтинг на 2ГИС"
+              >
+                <Star size={14} strokeWidth={0} fill="#ffcc00" className="text-[#ffcc00]" />
+                <span className="font-display text-lg font-semibold text-white md:text-xl">4,9</span>
+                <svg width="18" height="18" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="shrink-0 overflow-hidden rounded-md">
+                  <rect width="32" height="32" fill="#FFB700" />
+                  <path d="M0 20L32 15V32H0V20Z" fill="#58C22E" />
+                  <path d="M-2 21L34 14" stroke="white" strokeWidth="2.5" />
+                  <path d="M16 26s-5.5-6-5.5-10.5C10.5 11.46 12.96 9 16 9s5.5 2.46 5.5 6.5S16 26 16 26z" fill="#1b82f6" stroke="white" strokeWidth="2.5"/>
+                </svg>
+              </a>
 
-                {/* 2ГИС 4,9 — кликабельно */}
-                <a
-                  href="https://2gis.ru/ekaterinburg/search/Автояпонец%20Сахарова%2C%20107%2F2/firm/70000001110998814?m=60.500637%2C56.792667%2F16.87%2Fp%2F0.36%2Fr%2F-129.05"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 transition-opacity hover:opacity-80"
-                  title="Наш рейтинг на 2ГИС"
-                >
-                  <Star size={16} strokeWidth={0} fill="#ffcc00" className="text-[#ffcc00]" />
-                  <span className="font-display text-xl font-semibold text-white md:text-2xl">4,9</span>
-                  <svg width="22" height="22" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="shrink-0 overflow-hidden rounded-md">
-                    <rect width="32" height="32" fill="#FFB700" />
-                    <path d="M0 20L32 15V32H0V20Z" fill="#58C22E" />
-                    <path d="M-2 21L34 14" stroke="white" strokeWidth="2.5" />
-                    <path d="M16 26s-5.5-6-5.5-10.5C10.5 11.46 12.96 9 16 9s5.5 2.46 5.5 6.5S16 26 16 26z" fill="#1b82f6" stroke="white" strokeWidth="2.5"/>
-                  </svg>
-                </a>
+              {/* Разделитель */}
+              <div className="h-6 w-px bg-white/20" />
 
-                {/* Яндекс 5,0 — кликабельно */}
-                <a
-                  href="https://yandex.ru/maps/org/avtomoyo/132887448531/?ll=60.776537%2C56.900037&mode=search&sll=60.769089%2C56.899720&sspn=0.019741%2C0.007937&text=%D0%90%D0%B2%D1%82%D0%BE%D0%AF%D0%BF%D0%BE%D0%BD%D0%B5%D1%86%20%D0%B1%D0%B5%D1%80%D0%B5%D0%B7%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%20%D0%BF%D1%80%D0%B8%D0%B2%D0%BE%D0%B7&z=15.13"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 transition-opacity hover:opacity-80"
-                  title="Наш рейтинг на Яндекс Картах"
-                >
-                  <div className="flex gap-0.5">
-                    {Array.from({ length: 5 }).map((_, i) => (
-                      <Star key={i} size={14} strokeWidth={0} fill="#ffcc00" className="text-[#ffcc00]" />
-                    ))}
-                  </div>
-                  <span className="font-display text-xl font-semibold text-white md:text-2xl">5,0</span>
-                </a>
+              {/* Яндекс 5,0 */}
+              <a
+                href="https://yandex.ru/maps/org/avtomoyo/132887448531/?ll=60.776537%2C56.900037&mode=search&sll=60.769089%2C56.899720&sspn=0.019741%2C0.007937&text=%D0%90%D0%B2%D1%82%D0%BE%D0%AF%D0%BF%D0%BE%D0%BD%D0%B5%D1%86%20%D0%B1%D0%B5%D1%80%D0%B5%D0%B7%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%20%D0%BF%D1%80%D0%B8%D0%B2%D0%BE%D0%B7&z=15.13"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 transition-opacity hover:opacity-80"
+                title="Наш рейтинг на Яндекс Картах"
+              >
+                <div className="flex gap-0.5">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <Star key={i} size={12} strokeWidth={0} fill="#ffcc00" className="text-[#ffcc00]" />
+                  ))}
+                </div>
+                <span className="font-display text-lg font-semibold text-white md:text-xl">5,0</span>
+              </a>
 
-                {/* Яндекс — Хорошее место — кликабельно */}
-                <a
-                  href="https://yandex.ru/maps/org/avtomoyo/218269267792/?ll=60.640270%2C56.889493&z=16"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 transition-opacity hover:opacity-80"
-                  title="Хорошее место 2026 на Яндекс Картах"
-                >
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="shrink-0">
-                    <path d="M3 15c0 0-2-6 3-8 0 0-3 5-1 8 0 0-1 1-2 0z" fill="#ffcc00"/>
-                    <path d="M4.5 18c0 0-1-4 2-5 0 0-2 3-1 4.5 0 0-.5.5-1 .5z" fill="#ffcc00"/>
-                    <path d="M21 15c0 0 2-6-3-8 0 0 3 5 1 8 0 0 1 1 2 0z" fill="#ffcc00"/>
-                    <path d="M19.5 18c0 0 1-4-2-5 0 0 2 3 1 4.5 0 0 .5.5 1 .5z" fill="#ffcc00"/>
-                    <path d="M12 22s-6-7-6-12.5C6 6.46 8.69 4 12 4s6 2.46 6 5.5S12 22 12 22z" fill="#ff3333"/>
-                    <circle cx="12" cy="9.5" r="3" fill="white"/>
-                  </svg>
-                  <span className="text-sm font-medium text-white/75">
-                    Хорошее место 2026
-                  </span>
-                </a>
+              {/* Разделитель */}
+              <div className="h-6 w-px bg-white/20" />
 
-              </div>
+              {/* Яндекс — Хорошее место */}
+              <a
+                href="https://yandex.ru/maps/org/avtomoyo/218269267792/?ll=60.640270%2C56.889493&z=16"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 transition-opacity hover:opacity-80"
+                title="Хорошее место 2026 на Яндекс Картах"
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="shrink-0">
+                  <path d="M3 15c0 0-2-6 3-8 0 0-3 5-1 8 0 0-1 1-2 0z" fill="#ffcc00"/>
+                  <path d="M4.5 18c0 0-1-4 2-5 0 0-2 3-1 4.5 0 0-.5.5-1 .5z" fill="#ffcc00"/>
+                  <path d="M21 15c0 0 2-6-3-8 0 0 3 5 1 8 0 0 1 1 2 0z" fill="#ffcc00"/>
+                  <path d="M19.5 18c0 0 1-4-2-5 0 0 2 3 1 4.5 0 0 .5.5 1 .5z" fill="#ffcc00"/>
+                  <path d="M12 22s-6-7-6-12.5C6 6.46 8.69 4 12 4s6 2.46 6 5.5S12 22 12 22z" fill="#ff3333"/>
+                  <circle cx="12" cy="9.5" r="3" fill="white"/>
+                </svg>
+                <span className="text-[11px] font-medium text-white/80 uppercase tracking-wider">
+                  Хорошее место
+                </span>
+              </a>
+
             </div>
           </Reveal>
         </div>
@@ -236,24 +254,24 @@ export default async function HomePage() {
         {/* Subtle background decoration */}
         <div className="pointer-events-none absolute inset-0 opacity-15" style={{backgroundImage: "radial-gradient(circle at 15% 60%, rgba(255,255,255,0.08) 0%, transparent 50%), radial-gradient(circle at 85% 20%, rgba(0,120,200,0.3) 0%, transparent 55%)"}} />
         
-        <div className="wrap relative py-20 md:py-28">
+        <div className="wrap relative pt-8 pb-16 md:py-28">
           <Reveal>
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sky-400/80">Магазин · Сервис</p>
-            <h2 className="mt-4 max-w-xl font-display text-3xl font-bold leading-tight tracking-tight text-white md:text-5xl">
+            <h2 className="mt-2 md:mt-4 max-w-xl font-display text-3xl font-bold leading-tight tracking-tight text-white md:text-5xl">
               Одна команда —{" "}
               <span className="italic font-light text-sky-300">два направления</span>
             </h2>
           </Reveal>
 
-          <div className="mt-12 grid gap-6 md:grid-cols-2">
+          <div className="mt-8 md:mt-12 grid gap-6 md:grid-cols-2">
             {[
               {
                 href: "/catalog",
                 img: "/img/shop-real.jpg",
                 tag: "Магазин",
                 title: "Магазин запчастей",
-                text: "30 000+ наименований на складе: фильтры, тормоза, подвеска, масла и электрика. 5 магазинов — заберите заказ в удобном районе.",
-                cta: "Перейти в каталог",
+                text: "50 000+ наименований на складе: фильтры, тормоза, подвеска, масла и электрика. 5 магазинов — заберите заказ в удобном районе.",
+                cta: "Заказать запчасть",
                 accent: "#38bdf8",
               },
               {
@@ -315,8 +333,8 @@ export default async function HomePage() {
 
       {/* ---------------------------- PAYMENT SPLIT -------------------------- */}
       <section className="border-y border-gray-100 bg-[#eff3f8] overflow-hidden">
-        <div className="wrap">
-          <div className="flex flex-col items-center gap-8 py-8 md:flex-row md:justify-between md:py-12">
+        <div className="wrap pt-8 md:py-12">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 md:gap-8">
             
             {/* Левая часть: текст */}
             <div className="flex-1 md:max-w-lg lg:max-w-xl">
@@ -328,7 +346,8 @@ export default async function HomePage() {
                 <p className="mt-4 max-w-md text-base text-slate-600 md:text-lg">
                   Без переплат и скрытых комиссий. Ремонтируйте сегодня — платите потом через Яндекс Сплит или Халву.
                 </p>
-                <div className="mt-6">
+                {/* Кнопка для десктопа */}
+                <div className="mt-6 hidden md:block">
                   <Link
                     href="/installment"
                     className="inline-flex items-center gap-2 rounded-lg bg-white px-5 py-2.5 text-xs font-bold uppercase tracking-widest text-slate-900 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md"
@@ -339,8 +358,8 @@ export default async function HomePage() {
               </Reveal>
             </div>
 
-            {/* Правая часть: картинка без фона (mix-blend-multiply) */}
-            <div className="relative w-full max-w-[280px] md:max-w-[400px] lg:max-w-[500px]">
+            {/* Правая часть: картинка во всю ширину на мобилке */}
+            <div className="relative w-[100vw] left-1/2 -translate-x-1/2 md:w-full md:left-0 md:translate-x-0 md:max-w-[400px] lg:max-w-[500px]">
               <Reveal delay={0.2}>
                 <div className="relative aspect-[16/9] w-full lg:scale-125 lg:origin-right">
                   <Image
@@ -348,10 +367,22 @@ export default async function HomePage() {
                     alt="Оплата частями: Яндекс Сплит и Халва"
                     fill
                     sizes="(max-width: 1024px) 100vw, 500px"
-                    className="object-contain mix-blend-multiply"
+                    className="object-cover sm:object-contain mix-blend-multiply"
                     priority
                   />
                 </div>
+              </Reveal>
+            </div>
+
+            {/* Кнопка для мобилки (под картинкой) */}
+            <div className="pb-8 flex justify-start md:hidden">
+              <Reveal delay={0.3}>
+                <Link
+                  href="/installment"
+                  className="inline-flex items-center gap-2 rounded-lg bg-white px-8 py-3 text-sm font-bold uppercase tracking-widest text-slate-900 shadow-sm transition-all active:scale-95"
+                >
+                  Подробнее
+                </Link>
               </Reveal>
             </div>
 
@@ -360,7 +391,7 @@ export default async function HomePage() {
       </section>
 
       {/* ------------------------------ PROMOS ---------------------------- */}
-      <section className="bg-[#0076be] py-20 md:py-28">
+      <section className="bg-[#0076be] pt-10 pb-16 md:py-28">
         <div className="wrap">
           <Reveal>
             <div className="flex flex-wrap items-end justify-between gap-4">
@@ -375,7 +406,7 @@ export default async function HomePage() {
         <div className="mt-10 grid grid-cols-2 gap-4 lg:grid-cols-4">
           {PROMOS.map((p, i) => (
             <Reveal key={p.title} delay={(i % 4) * 0.07}>
-              <div className="group card h-full overflow-hidden transition hover:border-accent-500/25">
+              <div className="group card h-full overflow-hidden transition hover:border-accent-500/25 !rounded-md">
                 {/* Место под макет */}
                 <div className="relative aspect-square overflow-hidden bg-[#0076be]/10">
                   {p.img && (
@@ -402,7 +433,7 @@ export default async function HomePage() {
 
 
       {/* ---------------------------- ADVANTAGES ---------------------------- */}
-      <section className="wrap pt-20 md:pt-28">
+      <section className="wrap pt-10 md:pt-28">
         <Reveal>
           <div className="flex flex-col items-start gap-2.5">
             <p className="section-subtitle">Преимущества сети</p>
@@ -424,8 +455,8 @@ export default async function HomePage() {
             },
             {
               icon: Warehouse,
-              t: "35 000 +",
-              d: "35 000+ наименований на складе в Екатеринбурге — 92% заказов выдаём в день обращения.",
+              t: "50 000 +",
+              d: "50 000+ наименований на складе в Екатеринбурге — 92% заказов выдаём в день обращения.",
               stat: "в наличии",
               statLabel: "на складе",
             },
@@ -533,18 +564,17 @@ export default async function HomePage() {
       {/* ------------------------------- PROMO ------------------------------ */}
       <section className="wrap pt-20 md:pt-28">
         <Reveal>
-          <div className="relative overflow-hidden rounded-3xl bg-brand-gradient p-8 md:p-14">
+          <div className="relative overflow-hidden rounded-xl md:rounded-3xl bg-brand-gradient p-6 md:p-14">
             <div className="absolute -left-32 -bottom-32 h-80 w-80 rounded-full bg-accent-400/25 blur-[120px]" />
             <p className="pointer-events-none absolute -right-4 -top-10 select-none font-display text-[160px] font-extrabold leading-none text-outline-light opacity-40 md:text-[240px]">
-              −15%
+              15%
             </p>
             <p className="text-[11px] font-bold uppercase tracking-[0.28em] text-white">Акция</p>
             <h2 className="relative mt-5 max-w-lg font-display text-3xl font-extrabold uppercase leading-tight text-white md:text-4xl">
               Тест-драйв сервисного центра
             </h2>
             <p className="relative mt-4 max-w-md text-sm leading-relaxed text-white/75 md:text-base">
-              Первый визит в сервис-центр на Шефской — со скидкой 15%: ТО по регламенту, диагностика и ремонт.
-              Оцените сервис изнутри, как в Перми на Героева Хасана.
+              Первый визит в сервис-центр на Шефской — со скидкой 15%: ТО по регламенту, диагностика и ремонт. Оцените сервис изнутри.
             </p>
             <Link href="/service" className="btn relative mt-7 bg-white px-6 py-3.5 text-accent-700 hover:bg-carbon-800">
               Записаться со скидкой <ArrowRight size={16} />
@@ -580,7 +610,7 @@ export default async function HomePage() {
       </section>
 
       {/* ---------------------------- TESTIMONIALS --------------------------- */}
-      <section id="reviews" className="wrap scroll-mt-24 pt-20 md:pt-28">
+      <section id="reviews" className="wrap scroll-mt-24 pt-10 md:pt-28">
         <Reveal>
           <div>
             <h2 className="font-display text-2xl sm:text-3xl font-extrabold uppercase tracking-tight text-slate-900">

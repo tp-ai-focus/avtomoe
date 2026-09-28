@@ -43,7 +43,7 @@ export default function AboutPage() {
           </p>
 
           <p>
-            На собственном складе у нас более <strong className="text-slate-900 font-bold">35 000</strong> запчастей в наличии. А ещё мы выпускаем надёжные запчасти под собственным брендом{" "}
+            На собственном складе у нас более <strong className="text-slate-900 font-bold">50 000</strong> запчастей в наличии. А ещё мы выпускаем надёжные запчасти под собственным брендом{" "}
             <strong className="text-slate-900 font-bold">AVTOMOE</strong>, контролируя качество на каждом этапе производства.
           </p>
 

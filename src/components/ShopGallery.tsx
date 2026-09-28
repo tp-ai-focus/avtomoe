@@ -37,30 +37,24 @@ const shopPhotos = [
 
 export function ShopGallery() {
   return (
-    <section className="mt-16 md:mt-24">
+    <section className="mt-8 md:mt-12">
       {/* Заголовок и адреса в одну строчку с иконкой гео */}
       <Reveal>
-        <div className="flex flex-col items-start gap-3">
+        <div className="flex flex-col items-start gap-2">
           <p className="section-subtitle">Сеть магазинов</p>
           <h2 className="font-display text-3xl font-extrabold uppercase tracking-tight md:text-5xl text-slate-900">
             Наши магазины
           </h2>
 
-          {/* Строка адресов с иконкой Гео через палочку / */}
-          <div className="mt-1 flex flex-wrap items-center gap-x-2.5 gap-y-1.5 text-sm sm:text-base font-semibold text-slate-700">
-            <div className="inline-flex items-center gap-1.5 text-[#0076be] shrink-0">
-              <MapPin size={18} className="text-[#0076be]" />
-              <span className="font-bold text-slate-900">Адреса:</span>
-            </div>
-            
+          {/* Адреса в виде аккуратных тегов/бейждей */}
+          <div className="mt-2.5 flex flex-wrap items-center gap-1.5 sm:gap-2">
             {exactAddresses.map((addr, idx) => (
-              <span key={idx} className="inline-flex items-center gap-2.5">
-                <span className="text-slate-800 font-medium">
-                  {addr}
-                </span>
-                {idx < exactAddresses.length - 1 && (
-                  <span className="text-slate-300 select-none">/</span>
-                )}
+              <span 
+                key={idx} 
+                className="inline-flex items-center gap-1 rounded-full border border-sky-100/60 bg-sky-50/50 px-2.5 py-1 text-[11px] sm:text-xs font-medium text-slate-600 backdrop-blur-sm"
+              >
+                <MapPin size={12} className="text-sky-400" />
+                {addr}
               </span>
             ))}
           </div>

@@ -18,7 +18,7 @@ import { YandexReviews } from "@/components/YandexReviews";
 export const metadata: Metadata = {
   title: "Каталог запчастей — Магазин АвтоМоё",
   description:
-    "35 000+ запчастей в наличии, собственный бренд, работа 24/7 и бесплатная доставка. Подберём подходящую деталь по VIN, быстро оформим заказ и дадим гарантию.",
+    "50 000+ запчастей в наличии, собственный бренд, работа 24/7 и бесплатная доставка. Подберём подходящую деталь по VIN, быстро оформим заказ и дадим гарантию.",
 };
 
 
@@ -33,7 +33,7 @@ export default async function CatalogPage() {
   return (
     <div>
       {/* -------------------- HERO: УТП СЛЕВА + ФОРМА СПРАВА -------------------- */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#003b73] to-[#0076be] pt-28 pb-16 md:pt-36 md:pb-24">
+      <section className="relative overflow-hidden bg-gradient-to-br from-[#003b73] to-[#0076be] pt-8 pb-12 md:pt-12 md:pb-16">
         {/* Фото склада запчастей на фоне с эффектом наложения */}
         <div className="absolute inset-0 z-0">
           <Image
@@ -62,13 +62,13 @@ export default async function CatalogPage() {
             <Reveal className="lg:col-span-7">
               <div className="pt-2 lg:pt-0">
                 {/* Бейджи: 24/7 + 5 звёзд на Яндекс Картах */}
-                <div className="flex flex-wrap items-center gap-3 mb-6 sm:mb-8">
-                  <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/15 px-4 py-1.5 backdrop-blur-md">
-                    <span className="relative flex h-2 w-2">
+                <div className="flex flex-wrap items-center gap-2 md:gap-3 mb-5 sm:mb-8">
+                  <div className="inline-flex items-center gap-1.5 md:gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/15 px-2.5 py-1 md:px-4 md:py-1.5 backdrop-blur-md">
+                    <span className="relative flex h-1.5 w-1.5 md:h-2 md:w-2">
                       <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
-                      <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500"></span>
+                      <span className="relative inline-flex h-1.5 w-1.5 md:h-2 md:w-2 rounded-full bg-emerald-500"></span>
                     </span>
-                    <span className="font-display text-[11px] font-bold uppercase tracking-wider text-white">
+                    <span className="font-display text-[9px] md:text-[11px] font-bold uppercase tracking-wider text-white">
                       Магазин запчастей 24/7
                     </span>
                   </div>
@@ -77,57 +77,58 @@ export default async function CatalogPage() {
                     href="https://yandex.ru/maps/org/avtomoyo/132887448531/?ll=60.776537%2C56.900037&mode=search&sll=60.769089%2C56.899720&sspn=0.019741%2C0.007937&text=%D0%90%D0%B2%D1%82%D0%BE%D0%AF%D0%BF%D0%BE%D0%BD%D0%B5%D1%86%20%D0%B1%D0%B5%D1%80%D0%B5%D0%B7%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%20%D0%BF%D1%80%D0%B8%D0%B2%D0%BE%D0%B7&z=15.13"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/[0.08] px-3.5 py-1.5 backdrop-blur-md transition hover:bg-white/[0.16] hover:border-white/25"
+                    className="inline-flex items-center gap-1 md:gap-1.5 rounded-full border border-white/15 bg-white/[0.08] px-2.5 py-1 md:px-3.5 md:py-1.5 backdrop-blur-md transition hover:bg-white/[0.16] hover:border-white/25"
                     title="Рейтинг 5,0 на Яндекс Картах"
                   >
                     <div className="flex gap-0.5 text-amber-400">
                       {Array.from({ length: 5 }).map((_, s) => (
-                        <Star key={s} size={12} strokeWidth={0} fill="currentColor" />
+                        <Star key={s} size={10} className="md:w-3 md:h-3" strokeWidth={0} fill="currentColor" />
                       ))}
                     </div>
-                    <span className="text-xs font-bold text-white">
+                    <span className="text-[10px] md:text-xs font-bold text-white">
                       5 звёзд на Яндекс Картах
                     </span>
                   </a>
                 </div>
 
-                <h1 className="font-display text-3xl sm:text-4xl lg:text-[54px] font-extrabold leading-[1.08] tracking-tight text-white mb-6">
+                <h1 className="font-display text-3xl sm:text-4xl lg:text-[54px] font-extrabold leading-[1.15] md:leading-[1.08] tracking-tight text-white mb-5 md:mb-6">
                   Нужна запчасть? <br />
                   <span className="bg-gradient-to-r from-sky-300 via-sky-400 to-[#29A8E0] bg-clip-text text-transparent">
                     Найдём. Подберём. Доставим.
                   </span>
                 </h1>
 
-                <div className="space-y-3 max-w-xl">
+                <div className="space-y-2 md:space-y-3 max-w-xl">
                   {/* Ключевые тезисы строками */}
-                  <div className="flex flex-col gap-1.5 text-base sm:text-lg text-white font-medium">
-                    <div className="flex items-center gap-2.5">
-                      <span className="h-1.5 w-1.5 rounded-full bg-sky-400 shrink-0" />
-                      <span><strong className="text-white font-bold">35 000</strong> деталей в наличии</span>
+                  <div className="flex flex-col gap-2 text-sm sm:text-lg text-white font-medium">
+                    <div className="flex items-start gap-2.5 md:items-center">
+                      <CheckCircle2 size={16} className="mt-0.5 md:mt-0 shrink-0 text-sky-400" />
+                      <span><strong className="text-white font-bold">50 000</strong> деталей в наличии</span>
                     </div>
-                    <div className="flex items-center gap-2.5">
-                      <span className="h-1.5 w-1.5 rounded-full bg-sky-400 shrink-0" />
-                      <span>Собственный бренд запчастей <strong className="text-sky-300 font-semibold">«АвтоМоё»</strong></span>
+                    <div className="flex items-start gap-2.5 md:items-center">
+                      <CheckCircle2 size={16} className="mt-0.5 md:mt-0 shrink-0 text-sky-400" />
+                      <span>Собственный бренд запчастей <strong className="text-sky-300 font-semibold">«AVTOMOE»</strong></span>
                     </div>
-                    <div className="flex items-center gap-2.5">
-                      <span className="h-1.5 w-1.5 rounded-full bg-sky-400 shrink-0" />
+                    <div className="flex items-start gap-2.5 md:items-center">
+                      <CheckCircle2 size={16} className="mt-0.5 md:mt-0 shrink-0 text-sky-400" />
                       <span>Работаем <strong className="text-white font-bold">24/7</strong></span>
                     </div>
                   </div>
 
                   {/* Поясняющая строка */}
-                  <p className="pt-1 text-sm sm:text-base text-slate-200/90 leading-relaxed font-normal">
+                  <p className="pt-1.5 text-xs sm:text-base text-white/70 leading-relaxed font-normal">
                     Подберём запчасть по VIN, бесплатно доставим и предоставим гарантию.
                   </p>
                 </div>
 
-                <div className="mt-6 inline-flex items-center gap-3 rounded-2xl border border-white/40 bg-white/[0.92] px-4 py-2.5 shadow-xl shadow-black/25 backdrop-blur-md">
-                  <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-xl bg-sky-500 text-white shadow-sm">
-                    <CheckCircle2 size={16} strokeWidth={2.5} />
+                <div className="mt-5 md:mt-6 inline-flex items-center gap-2.5 md:gap-3 rounded-xl md:rounded-2xl border border-white/40 bg-white/[0.92] px-3 py-2 md:px-4 md:py-2.5 shadow-xl shadow-black/25 backdrop-blur-md">
+                  <div className="flex h-6 w-6 md:h-7 md:w-7 shrink-0 items-center justify-center rounded-lg md:rounded-xl bg-sky-500 text-white shadow-sm">
+                    <CheckCircle2 size={14} className="md:w-4 md:h-4" strokeWidth={2.5} />
                   </div>
-                  <div className="text-sm sm:text-base font-medium text-slate-800">
+                  <div className="text-xs sm:text-base font-medium text-slate-800">
                     <span className="font-bold text-slate-950">Оставьте заявку</span>
-                    <span className="text-slate-600"> — остальное возьмём на себя.</span>
+                    <span className="text-slate-600 hidden sm:inline"> — остальное возьмём на себя.</span>
+                    <span className="text-slate-600 sm:hidden"> — мы всё сделаем.</span>
                   </div>
                 </div>
               </div>
@@ -145,7 +146,7 @@ export default async function CatalogPage() {
           <div className="mt-14 pt-10 border-t border-white/10 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
             {[
               {
-                value: "35 000+",
+                value: "50 000+",
                 unit: "",
                 label: "запчастей на складе",
                 desc: "Для японцев и европейцев",
@@ -195,7 +196,7 @@ export default async function CatalogPage() {
       </section>
 
       {/* ---------------------------- КАТАЛОГ ТОВАРОВ И КАТЕГОРИИ ---------------------------- */}
-      <div className="wrap pb-16 pt-12 md:pt-16">
+      <div className="wrap pb-16 pt-8 md:pt-10">
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div>
             <p className="section-subtitle">Категории</p>

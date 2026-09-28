@@ -29,8 +29,8 @@ export const SERVICE_CENTER = {
   note: "Сервис-центр и магазин-склад, 8 подъёмников",
 };
 
-export const SHOP_HOURS = "Пн–Сб 9:00–20:00 · Вс 10:00–19:00";
-export const SERVICE_HOURS = "Пн–Сб 9:00–20:00";
+export const SHOP_HOURS = "каждый день с 8:00 - 22:00";
+export const SERVICE_HOURS = "каждый день с 8:00 - 22:00";
 
 export const DELIVERY = {
   FREE_FROM: 5000,

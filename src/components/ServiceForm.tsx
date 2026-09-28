@@ -59,7 +59,7 @@ export function ServiceForm() {
   }
 
   const inputClass =
-    "w-full rounded-xl border-none bg-white py-2.5 text-sm text-slate-900 placeholder-slate-400 outline-none focus:ring-2 focus:ring-sky-400";
+    "w-full rounded-lg border border-white/20 bg-white/5 py-2.5 text-sm text-white placeholder-white/60 outline-none focus:bg-white/10 focus:ring-2 focus:ring-sky-400";
 
   return (
     <form onSubmit={submit} className="flex flex-col gap-2.5">
@@ -133,7 +133,7 @@ export function ServiceForm() {
       <button
         type="submit"
         disabled={pending || !agreed}
-        className="mt-1 flex w-full items-center justify-center rounded-xl bg-red-500 py-3.5 text-[13px] sm:text-[14px] font-extrabold uppercase tracking-wider text-white shadow-lg shadow-red-900/30 transition-all hover:bg-red-600 hover:scale-[1.01] active:scale-[0.99] disabled:opacity-70"
+        className="mt-1 flex w-full items-center justify-center rounded-lg bg-red-500 py-3.5 text-[13px] sm:text-[14px] font-extrabold uppercase tracking-wider text-white shadow-lg shadow-red-900/30 transition-all hover:bg-red-600 hover:scale-[1.01] active:scale-[0.99] disabled:opacity-70"
       >
         {pending ? <Loader2 size={18} className="mr-2 animate-spin text-white" /> : null}
         Узнать стоимость
@@ -154,7 +154,7 @@ export function ServiceForm() {
           href={MAX_BOT_URL}
           target="_blank"
           rel="noreferrer"
-          className="flex items-center justify-center rounded-xl bg-[#7c3aed] py-2.5 text-[11px] font-bold uppercase tracking-wider text-white shadow-md shadow-purple-900/25 transition hover:brightness-110 hover:scale-[1.02]"
+          className="flex items-center justify-center rounded-lg bg-[#7c3aed] py-2.5 text-[11px] font-bold uppercase tracking-wider text-white shadow-md shadow-purple-900/25 transition hover:brightness-110 hover:scale-[1.02]"
         >
           В МАХ-боте
         </a>
@@ -163,7 +163,7 @@ export function ServiceForm() {
           href={TELEGRAM_URL}
           target="_blank"
           rel="noreferrer"
-          className="flex items-center justify-center rounded-xl bg-[#29A8E0] py-2.5 text-[11px] font-bold uppercase tracking-wider text-white shadow-md shadow-[#29A8E0]/25 transition hover:brightness-110 hover:scale-[1.02]"
+          className="flex items-center justify-center rounded-lg bg-[#29A8E0] py-2.5 text-[11px] font-bold uppercase tracking-wider text-white shadow-md shadow-[#29A8E0]/25 transition hover:brightness-110 hover:scale-[1.02]"
         >
           В Телеграм-боте
         </a>
@@ -185,7 +185,7 @@ export function ServiceForm() {
           href={MAX_SERVICE_CHAT_URL}
           target="_blank"
           rel="noreferrer"
-          className="flex items-center justify-center rounded-xl bg-[#7c3aed] py-2.5 text-white shadow-md shadow-purple-900/25 transition hover:brightness-110 hover:scale-[1.02]"
+          className="flex items-center justify-center rounded-lg bg-[#7c3aed] py-2.5 text-white shadow-md shadow-purple-900/25 transition hover:brightness-110 hover:scale-[1.02]"
           title="Написать в MAX сервисного центра"
         >
           <svg width="20" height="20" viewBox="0 0 28 28" fill="none">
@@ -203,7 +203,7 @@ export function ServiceForm() {
           href={TELEGRAM_URL}
           target="_blank"
           rel="noreferrer"
-          className="flex items-center justify-center rounded-xl bg-[#29A8E0] py-2.5 text-white shadow-md shadow-[#29A8E0]/25 transition hover:brightness-110 hover:scale-[1.02]"
+          className="flex items-center justify-center rounded-lg bg-[#29A8E0] py-2.5 text-white shadow-md shadow-[#29A8E0]/25 transition hover:brightness-110 hover:scale-[1.02]"
           title="Telegram"
         >
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
@@ -223,7 +223,7 @@ export function ServiceForm() {
           phoneHref={SERVICE_PHONE_HREF}
           title="Позвонить мастеру"
           subtitle="Сервисный центр «АвтоМоё»"
-          className="flex items-center justify-center rounded-xl bg-[#f59e0b] py-2.5 text-white shadow-md shadow-amber-900/25 transition hover:brightness-110 hover:scale-[1.02] cursor-pointer"
+          className="flex items-center justify-center rounded-lg bg-[#f59e0b] py-2.5 text-white shadow-md shadow-amber-900/25 transition hover:brightness-110 hover:scale-[1.02] cursor-pointer"
         >
           <Phone size={17} className="text-white" />
         </PhoneCallButton>

@@ -159,10 +159,11 @@ export function ShopOrderModal({ isOpen, onClose, categoryName }: ShopOrderModal
             <button
               type="submit"
               disabled={pending || !agreed}
-              className="mt-1 flex w-full items-center justify-center rounded-xl bg-red-500 py-3.5 text-[14px] sm:text-[15px] font-extrabold uppercase tracking-wide text-white shadow-lg shadow-red-900/30 transition-all hover:bg-red-600 hover:scale-[1.01] active:scale-[0.99] disabled:opacity-70"
+              className="mt-1 flex w-full items-center justify-center rounded-xl bg-gradient-to-r from-red-500 to-rose-500 py-3 md:py-3.5 text-[11px] md:text-[14px] font-extrabold uppercase tracking-wide text-white shadow-lg shadow-red-900/30 transition-all hover:brightness-110 hover:scale-[1.01] active:scale-[0.99] disabled:opacity-70"
             >
-              {pending ? <Loader2 size={18} className="mr-2 animate-spin text-white" /> : null}
-              Подобрать запчасти со скидкой 15%
+              {pending ? <Loader2 size={16} className="mr-1.5 animate-spin text-white" /> : null}
+              <span>Подобрать со скидкой</span>
+              <span className="ml-1.5 md:ml-2 rounded-md bg-white/25 px-1.5 py-0.5 text-white shadow-inner">15%</span>
             </button>
 
             {/* Divider */}

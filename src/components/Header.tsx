@@ -8,6 +8,8 @@ import { useEffect, useState } from "react";
 import {
   PHONE_DISPLAY,
   PHONE_HREF,
+  SERVICE_PHONE_DISPLAY,
+  SERVICE_PHONE_HREF,
   SHOP_HOURS,
   TELEGRAM_URL,
   MAX_BOT_URL,
@@ -43,25 +45,77 @@ export function Header() {
 
   return (
     <>
-      <header className="sticky top-0 z-40 shadow-[0_4px_24px_rgba(0,80,140,0.35)]">
+      <header className="sticky top-0 z-40 shadow-[0_4px_24px_rgba(0,80,140,0.35)] flex flex-col">
 
+        {/* ── 1. Мобильная верхняя панель (телефоны) ── */}
+        <div className="flex lg:hidden justify-between items-center bg-[#005a92] px-4 py-2 text-[11px] font-bold text-white shadow-inner">
+          <PhoneCallButton 
+            phoneDisplay={PHONE_DISPLAY} 
+            phoneHref={PHONE_HREF} 
+            title="Позвонить в магазин автозапчастей"
+            className="flex items-center gap-1.5 transition-opacity hover:opacity-80"
+          >
+            <div className="grid h-5 w-5 place-items-center rounded-full bg-white/20">
+              <ShoppingCart size={10} />
+            </div>
+            <span>{PHONE_DISPLAY}</span>
+          </PhoneCallButton>
+          
+          <div className="h-4 w-px bg-white/20" />
+          
+          <PhoneCallButton 
+            phoneDisplay={SERVICE_PHONE_DISPLAY} 
+            phoneHref={SERVICE_PHONE_HREF}
+            title="Позвонить в сервис-центр"
+            className="flex items-center gap-1.5 transition-opacity hover:opacity-80 text-emerald-400"
+          >
+            <div className="grid h-5 w-5 place-items-center rounded-full bg-emerald-500/20">
+              <Wrench size={10} />
+            </div>
+            <span>{SERVICE_PHONE_DISPLAY}</span>
+          </PhoneCallButton>
+        </div>
 
         {/* ── 2. Основная полоса шапки ── */}
         <div className="bg-[#0076be] text-white">
-          <div className="mx-auto flex h-20 w-full max-w-[1700px] items-center justify-between gap-4 px-4 sm:px-6 lg:px-12">
+          <div className="mx-auto flex h-[72px] md:h-20 w-full max-w-[1700px] items-center justify-between gap-4 px-4 sm:px-6 lg:px-12">
 
-            {/* Логотипы и локация */}
-            <div className="flex items-center gap-5">
+            {/* Логотипы */}
+            <div className="flex flex-1 items-center justify-between mr-2 sm:mr-4 xl:mr-0 xl:justify-start xl:gap-5">
               <Link href="/" className="flex-shrink-0 transition-opacity hover:opacity-85" aria-label="Авто Моё">
                 <Image
                   src="/img/brand/avtomoe-logo-flags.png"
                   alt="Авто Моё"
                   width={200}
                   height={44}
-                  className="h-9 w-auto object-contain md:h-11"
+                  className="h-6 sm:h-8 w-auto object-contain md:h-11"
                 />
               </Link>
               
+              {/* Доп. логотипы (мобильная версия) */}
+              <div className="flex flex-1 items-center justify-evenly xl:hidden px-1 sm:px-3">
+                <Link href="/" aria-label="Авто Японец" className="transition-opacity hover:opacity-85">
+                  <Image
+                    src="/img/brand/logo-japonec.svg"
+                    alt="Авто Японец"
+                    width={90}
+                    height={22}
+                    className="h-[18px] sm:h-[22px] w-auto object-contain opacity-95"
+                  />
+                </Link>
+                <div className="h-5 sm:h-6 w-px bg-white/25" />
+                <Link href="/" aria-label="Авто Европеец" className="transition-opacity hover:opacity-85">
+                  <Image
+                    src="/img/brand/logo-evropeets.svg"
+                    alt="Авто Европеец"
+                    width={90}
+                    height={22}
+                    className="h-[18px] sm:h-[22px] w-auto object-contain opacity-95"
+                  />
+                </Link>
+              </div>
+
+              {/* Доп. логотипы (десктопная версия) */}
               <div className="hidden h-9 items-center gap-5 xl:flex">
                 <div className="h-7 w-px bg-white/20" />
                 <Link href="/" aria-label="Авто Японец" className="transition-opacity hover:opacity-85">
@@ -132,15 +186,26 @@ export function Header() {
                 </PhoneCallButton>
                 <span className="flex items-center gap-1 text-[11px] text-white/75">
                   <Clock size={11} className="text-[#8cc63f]" />
-                  Без выходных {SHOP_HOURS.replace("·", "·")}
+                  Мы работаем {SHOP_HOURS}
                 </span>
               </div>
 
-              {/* CTA-кнопка */}
-              <button onClick={() => setIsModalOpen(true)} className="flex flex-shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-md bg-[#e8291c] px-4 py-2 text-[11px] font-bold uppercase tracking-wider text-white shadow-[0_4px_14px_rgba(232,41,28,0.45)] transition hover:-translate-y-0.5 hover:bg-[#d62415] hover:shadow-[0_6px_20px_rgba(232,41,28,0.55)] active:translate-y-0">
-                <Search size={14} />
-                Подобрать запчасть
-              </button>
+              {/* Второй телефон (сервис) */}
+              <div className="flex flex-col whitespace-nowrap">
+                <PhoneCallButton
+                  phoneDisplay={SERVICE_PHONE_DISPLAY}
+                  phoneHref={SERVICE_PHONE_HREF}
+                  title="Позвонить в сервис-центр"
+                  subtitle="Круглосуточный сервис «АвтоМоё»"
+                  className="text-[20px] font-extrabold tracking-wide text-white transition hover:text-white/85 cursor-pointer"
+                >
+                  {SERVICE_PHONE_DISPLAY}
+                </PhoneCallButton>
+                <span className="flex items-center gap-1 text-[11px] text-white/75">
+                  <Clock size={11} className="text-[#8cc63f]" />
+                  Круглосуточно (склад + сервис)
+                </span>
+              </div>
             </div>
 
             {/* Мобильные кнопки */}
@@ -220,9 +285,20 @@ export function Header() {
                   <Send size={18} /> Telegram
                 </a>
               </div>
-              <button onClick={() => { setMenuOpen(false); setIsModalOpen(true); }} className="flex items-center justify-center gap-2 rounded-xl bg-[#e8291c] px-5 py-4 text-lg font-bold uppercase text-white shadow-[0_4px_14px_rgba(232,41,28,0.45)]">
-                <Search size={20} /> Подобрать запчасть
-              </button>
+              <div className="flex flex-col gap-1">
+                <PhoneCallButton
+                  phoneDisplay={SERVICE_PHONE_DISPLAY}
+                  phoneHref={SERVICE_PHONE_HREF}
+                  title="Позвонить в сервис-центр"
+                  subtitle="Круглосуточный сервис «АвтоМоё»"
+                  className="flex items-center gap-2 text-xl font-bold text-white cursor-pointer"
+                >
+                  <Phone size={20} /> <span>{SERVICE_PHONE_DISPLAY}</span>
+                </PhoneCallButton>
+                <span className="text-sm text-white/75 pl-7">
+                  Круглосуточно (склад + сервис)
+                </span>
+              </div>
             </div>
           </div>
         </div>

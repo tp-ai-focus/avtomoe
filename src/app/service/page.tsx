@@ -64,14 +64,14 @@ const ICONS: Record<string, LucideIcon> = {
 
 const whatWeDoServices = [
   { id: 1, title: 'Замена масла в ДВС', price: 'от 1 000 ₽', icon: Droplets, image: '/img/services/oil-change.jpg', hit: true },
-  { id: 2, title: 'Техническое обслуживание', price: 'от 5 980 ₽', icon: ClipboardCheck, image: '/img/services/tech-maintenance.jpg', hit: true },
-  { id: 3, title: 'Шиномонтаж с балансировкой', price: 'от 2 200 ₽', icon: Disc3, hit: true },
-  { id: 4, title: 'Диагностика электрооборудования', price: 'от 2 000 ₽', icon: Cpu, hit: false },
-  { id: 5, title: 'Развал / схождение', price: 'от 2 600 ₽', icon: Crosshair, hit: false },
-  { id: 6, title: 'Ремонт подвески', price: 'от 1 000 ₽', icon: CircleDot, hit: false },
-  { id: 7, title: 'Ремонт двигателей', price: 'от 28 000 ₽', icon: Wrench, hit: false },
-  { id: 8, title: 'Полировка фар', price: 'от 1 500 ₽', icon: Sparkles, hit: false },
-  { id: 9, title: 'Восстановление фар', price: 'от 3 000 ₽', icon: ShieldCheck, hit: false },
+  { id: 2, title: 'Техническое обслуживание', price: 'от 5 980 ₽', icon: ClipboardCheck, image: '/img/services/tech-maintenance-new.jpg', hit: true },
+  { id: 3, title: 'Шиномонтаж с балансировкой', price: 'от 2 200 ₽', icon: Disc3, image: '/img/services/shinomontazh.jpg', hit: true },
+  { id: 4, title: 'Диагностика электрооборудования', price: 'от 2 000 ₽', icon: Cpu, image: '/img/services/diagnostics-new.jpg', hit: false },
+  { id: 5, title: 'Развал / схождение', price: 'от 2 600 ₽', icon: Crosshair, image: '/img/services/wheel-align-new.jpg', hit: false },
+  { id: 6, title: 'Ремонт подвески', price: 'от 1 000 ₽', icon: CircleDot, image: '/img/services/suspension-new.jpg', hit: false },
+  { id: 7, title: 'Ремонт двигателей', price: 'от 28 000 ₽', icon: Wrench, image: '/img/services/engine-repair-new.jpg', hit: false },
+  { id: 8, title: 'Полировка фар', price: 'от 1 500 ₽', icon: Sparkles, image: '/img/services/headlight-polish-new-2.jpg', hit: false },
+  { id: 9, title: 'Восстановление фар', price: 'от 3 000 ₽', icon: ShieldCheck, image: '/img/services/headlight-restore-new.jpg', hit: false },
 ];
 
 const promotions = [
@@ -111,7 +111,7 @@ export default async function ServicePage() {
   return (
     <div>
       {/* HERO: BANNER + FORM + STATS GRID */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#003b73] to-[#0076be] pt-28 pb-16 md:pt-36 md:pb-24">
+      <section className="relative overflow-hidden bg-gradient-to-br from-[#003b73] to-[#0076be] pt-6 pb-16 md:pt-10 md:pb-24">
         {/* Фото сервиса с фирменным синим наложением */}
         <div className="absolute inset-0 z-0">
           <Image
@@ -151,7 +151,7 @@ export default async function ServicePage() {
                 </h1>
                 
                 <p className="max-w-xl text-base sm:text-lg lg:text-xl text-slate-300 leading-relaxed font-normal">
-                  Круглосуточный автосервис и склад на <strong className="text-white font-semibold">35 000+ запчастей</strong> на Шефской, 4б. Диагностика, ремонт и замена деталей без ожидания до утра.
+                  Круглосуточный автосервис и склад на <strong className="text-white font-semibold">50 000+ запчастей</strong> на Шефской, 4б. Диагностика, ремонт и замена деталей без ожидания до утра.
                 </p>
 
                 {/* Быстрые фичи */}
@@ -176,7 +176,7 @@ export default async function ServicePage() {
 
             {/* Правая часть: Форма заявки */}
             <Reveal delay={0.15} className="lg:col-span-5 h-full">
-              <div className="h-full w-full rounded-[28px] border border-white/15 bg-gradient-to-b from-[#0076be] to-[#005a92] p-6 sm:p-8 shadow-2xl shadow-black/50 backdrop-blur-sm relative overflow-hidden">
+              <div className="h-full w-full rounded-2xl border border-white/20 bg-white/10 p-6 sm:p-8 shadow-lg shadow-black/20 backdrop-blur-md relative overflow-hidden">
                 <ServiceForm />
               </div>
             </Reveal>
@@ -240,7 +240,7 @@ export default async function ServicePage() {
       </section>
 
       {/* SERVICES */}
-      <section className="wrap pt-20 md:pt-24">
+      <section className="wrap pt-10 md:pt-14">
         <Reveal>
           <div className="flex flex-wrap items-end justify-between gap-4">
             <div>
@@ -311,7 +311,7 @@ export default async function ServicePage() {
       </section>
 
       {/* PROCESS */}
-      <section className="wrap pt-20 md:pt-28">
+      <section className="wrap pt-10 md:pt-14">
         <Reveal>
           <p className="section-subtitle">Как это работает</p>
           <h2 className="mt-3 font-display text-3xl font-extrabold uppercase tracking-tight md:text-5xl">
@@ -343,7 +343,7 @@ export default async function ServicePage() {
       </section>
 
       {/* PROMOTIONS */}
-      <section className="wrap pt-20 md:pt-24">
+      <section className="wrap pt-10 md:pt-14">
         <Reveal>
           <div className="flex flex-col items-start gap-2.5">
             <p className="section-subtitle">Акции и скидки</p>
@@ -404,51 +404,60 @@ export default async function ServicePage() {
         </div>
       </section>
       {/* SHOP CTA */}
-      <section className="wrap pt-20 md:pt-28">
+      <section className="wrap pt-10 md:pt-14">
         <Reveal>
-          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#003b73] to-[#0076be] p-8 md:p-14">
+          <div className="relative overflow-hidden rounded-2xl bg-[#0076be] p-8 md:p-12 shadow-lg shadow-[#0076be]/20 border border-sky-400/20">
+            {/* Мягкие свечения на фоне вместо тяжелого градиента */}
+            <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-white/10 blur-3xl" />
+            <div className="absolute -bottom-32 -left-20 h-80 w-80 rounded-full bg-sky-300/20 blur-3xl" />
+            
             <Image
               src="/img/hero-shop-new.jpg"
               alt="Магазин запчастей «Авто моё»"
               fill
               sizes="100vw"
-              className="object-cover object-center opacity-40 mix-blend-overlay"
+              className="object-cover object-center opacity-15 mix-blend-overlay"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#002855]/90 via-[#003b73]/60 to-transparent" />
-            
-            {/* Outline 24/7 Text Background */}
-            <div 
-              className="pointer-events-none absolute -right-6 top-4 select-none font-display text-[120px] font-black leading-none text-transparent opacity-30 md:-right-10 md:-top-10 md:text-[280px]"
-              style={{ WebkitTextStroke: '2px rgba(255, 255, 255, 0.6)' }}
-            >
-              24/7
-            </div>
 
             <div className="relative">
-              <h2 className="max-w-xl font-display text-2xl font-extrabold uppercase leading-tight text-white md:text-4xl">
-                ЗАПЧАСТИ НУЖНЫ СЕЙЧАС? ОНИ УЖЕ НА ШЕФСКОЙ, 4Б
+              <h2 className="max-w-2xl font-display text-2xl font-extrabold uppercase leading-tight text-white md:text-3xl lg:text-4xl">
+                ЗАПЧАСТИ НУЖНЫ СЕЙЧАС? <br className="hidden sm:block" />
+                <span className="text-sky-300">ОНИ УЖЕ НА ШЕФСКОЙ, 4Б</span>
               </h2>
-              <div className="mt-5 max-w-md space-y-4 text-base leading-relaxed text-white/90">
-                <p>
-                  35 000+ наименований для японских и европейских автомобилей — от расходников до деталей для ремонта.
-                </p>
-                <p>
-                  Приезжайте в магазин, подберём нужную запчасть.<br />
-                  А если нужен ремонт — сразу установим её в нашем сервисном центре.
-                </p>
-                <p className="flex items-center gap-2.5 text-lg md:text-xl font-extrabold text-red-400 mt-3 drop-shadow-sm">
-                  <Clock size={22} className="text-red-400 shrink-0 stroke-[2.5]" />
-                  <span>Работаем 24/7</span>
-                </p>
+              
+              <div className="mt-8 max-w-lg space-y-4 text-sm md:text-base text-white/90">
+                <div className="flex items-start gap-3">
+                  <div className="mt-0.5 rounded-full bg-white/20 p-1 shrink-0">
+                    <CheckCircle2 size={16} className="text-white" />
+                  </div>
+                  <p><strong>50 000+ наименований</strong> для японских и европейских автомобилей — от расходников до деталей.</p>
+                </div>
+                
+                <div className="flex items-start gap-3">
+                  <div className="mt-0.5 rounded-full bg-white/20 p-1 shrink-0">
+                    <Wrench size={16} className="text-white" />
+                  </div>
+                  <p>Приезжайте в магазин, подберём деталь. Если нужен ремонт — <strong>сразу установим её в сервисе</strong>.</p>
+                </div>
+
+                <div className="flex items-center gap-3">
+                  <div className="rounded-full bg-red-500/20 p-1 shrink-0">
+                    <Clock size={16} className="text-red-400" />
+                  </div>
+                  <p className="text-red-200 font-extrabold uppercase tracking-wide">Работаем 24/7</p>
+                </div>
               </div>
-              <ShopCtaButton />
+              
+              <div className="mt-8">
+                <ShopCtaButton />
+              </div>
             </div>
           </div>
         </Reveal>
       </section>
 
       {/* LOUNGE AREA */}
-      <section className="pt-20 md:pt-28">
+      <section className="pt-10 md:pt-14">
         <div className="wrap">
           <Reveal>
             <div className="flex flex-col items-start gap-2">
@@ -529,7 +538,7 @@ export default async function ServicePage() {
 
 
       {/* MAP & DIRECTIONS */}
-      <section className="pt-20 md:pt-28">
+      <section className="pt-10 md:pt-14">
         <div className="wrap mb-10">
           <Reveal>
             <p className="section-subtitle">Локация</p>
@@ -553,18 +562,18 @@ export default async function ServicePage() {
 
             {/* Floating Card Aligned to Grid */}
             <div className="pointer-events-none absolute inset-0 mx-auto w-full max-w-7xl px-5 md:px-8">
-              <div className="pointer-events-auto absolute bottom-4 left-5 right-5 md:bottom-auto md:left-8 md:right-auto md:top-8 w-auto md:w-[380px] rounded-2xl bg-white/95 backdrop-blur-md p-6 shadow-2xl border border-white">
-                <p className="section-subtitle mb-2">Как к нам добраться</p>
-              <h3 className="font-display text-2xl font-extrabold text-slate-900">
+              <div className="pointer-events-auto absolute bottom-4 left-5 right-5 md:bottom-auto md:left-8 md:right-auto md:top-8 w-auto md:w-[320px] rounded-2xl bg-white/95 backdrop-blur-md p-5 shadow-xl border border-white">
+                <p className="section-subtitle mb-1.5 text-[9px]">Как к нам добраться</p>
+              <h3 className="font-display text-xl font-extrabold text-slate-900">
                 Сервисный центр
               </h3>
               
-              <div className="mt-4 space-y-3">
-                <div className="flex items-start gap-3">
-                  <MapPin size={18} className="mt-0.5 text-[#0076be] shrink-0" />
+              <div className="mt-3 space-y-2">
+                <div className="flex items-start gap-2.5">
+                  <MapPin size={16} className="mt-0.5 text-[#0076be] shrink-0" />
                   <div>
-                    <p className="font-bold text-slate-800">Екатеринбург, ул. Шефская, 4б</p>
-                    <p className="mt-1 text-xs text-slate-500 leading-relaxed">
+                    <p className="font-bold text-sm text-slate-800">Екатеринбург, ул. Шефская, 4б</p>
+                    <p className="mt-0.5 text-[11px] text-slate-500 leading-relaxed">
                       Заезд с дублера ул. Шефской. Ориентир — большое синее здание с вывеской «АвтоМоё».
                     </p>
                   </div>
@@ -575,9 +584,9 @@ export default async function ServicePage() {
                 <a 
                   href="https://yandex.ru/maps/54/yekaterinburg/search/%D0%A8%D0%B5%D1%84%D1%81%D0%BA%D0%B0%D1%8F%2C%204%D0%B1%20%D0%90%D0%B2%D1%82%D0%BE%D0%9C%D0%BE%D0%B5/?ll=60.640270%2C56.889493&sll=60.597636%2C56.837435&sspn=0.315857%2C0.123824&z=16.72"
                   target="_blank"
-                  className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#ffcc00] py-3.5 text-[10px] font-bold uppercase tracking-wide text-black transition hover:bg-[#ffe040]"
+                  className="flex w-full items-center justify-center gap-2 rounded-lg border border-slate-200 bg-transparent py-2.5 text-[10px] font-bold uppercase tracking-wide text-slate-700 transition hover:border-[#ffcc00] hover:bg-[#ffcc00]/10 hover:text-black"
                 >
-                  <Navigation size={16} />
+                  <Navigation size={15} className="text-[#eab308]" />
                   Яндекс Навигатор
                 </a>
               </div>
@@ -588,7 +597,7 @@ export default async function ServicePage() {
       </section>
 
       {/* REVIEWS / НАМ ДОВЕРЯЮТ */}
-      <section id="reviews" className="wrap scroll-mt-24 pt-20 md:pt-28">
+      <section id="reviews" className="wrap scroll-mt-24 pt-10 md:pt-14">
         <Reveal>
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
             <div>

@@ -9,7 +9,7 @@ export default function NotFound() {
       </span>
       <p className="font-display text-6xl font-extrabold text-outline">404</p>
       <p className="max-w-md text-sm leading-relaxed text-zinc-500">
-        Такой страницы нет — возможно, запчасть уже продана или ссылка устарела. Загляните в каталог: там более 30 000 позиций в наличии.
+        Такой страницы нет — возможно, запчасть уже продана или ссылка устарела. Загляните в каталог: там более 50 000 позиций в наличии.
       </p>
       <div className="flex flex-wrap justify-center gap-3">
         <Link href="/catalog" className="btn-accent">В каталог</Link>

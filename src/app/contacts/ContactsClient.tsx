@@ -65,7 +65,6 @@ const BRANCHES: BranchInfo[] = [
     scheduleRaw: {
       store: ["Ежедневно: Круглосуточно"],
       service: [
-        "Сервисный центр (8 подъёмников):",
         "Ежедневно: Круглосуточно",
       ],
     },
@@ -264,7 +263,7 @@ export default function ContactsClient() {
         </div>
       </div>
 
-      <main className="wrap max-w-7xl py-10 md:py-14">
+      <main className="wrap max-w-7xl pt-10 pb-4 md:pt-14 md:pb-6">
         {/* 3 верхние карточки связи: телефон, мессенджеры, почта */}
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {/* 1. Телефон */}
@@ -395,23 +394,23 @@ export default function ContactsClient() {
         <div className="mt-14">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <h2 className="font-display text-2xl font-extrabold tracking-tight text-slate-900 sm:text-3xl">
-                Адреса наших магазинов и сервисного центра
+              <h2 className="font-display text-2xl font-extrabold tracking-tight text-slate-900 sm:text-3xl leading-tight">
+                Адреса наших магазинов <br className="sm:hidden" /> и сервисного центра
               </h2>
-              <p className="mt-1 text-sm text-slate-600">
+              <p className="mt-2 text-[13px] sm:text-sm text-slate-600 leading-relaxed">
                 Выберите филиал, чтобы посмотреть расписание, маршрут или скопировать адрес в навигатор.
               </p>
             </div>
 
             {/* Быстрые фильтры */}
-            <div className="flex flex-wrap items-center gap-1.5 rounded-xl border border-slate-200 bg-slate-50/80 p-1">
+            <div className="flex overflow-x-auto whitespace-nowrap flex-nowrap items-center gap-2 pb-2 scrollbar-hide [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden -mx-5 px-5 sm:mx-0 sm:px-0 mt-2 sm:mt-0">
               <button
                 type="button"
                 onClick={() => setFilter("all")}
-                className={`rounded-lg px-3 py-1.5 text-xs font-bold transition ${
+                className={`rounded-full px-4 py-2 text-xs font-bold transition-all ${
                   filter === "all"
-                    ? "bg-white text-[#0076be] shadow-2xs"
-                    : "text-slate-600 hover:text-slate-900"
+                    ? "bg-[#0076be] text-white shadow-md shadow-[#0076be]/25"
+                    : "bg-white text-slate-700 border border-slate-200/80 hover:border-[#0076be]/40 hover:bg-slate-50"
                 }`}
               >
                 Все (5)
@@ -419,21 +418,21 @@ export default function ContactsClient() {
               <button
                 type="button"
                 onClick={() => setFilter("service")}
-                className={`flex items-center gap-1 rounded-lg px-3 py-1.5 text-xs font-bold transition ${
+                className={`flex items-center gap-1.5 rounded-full px-4 py-2 text-xs font-bold transition-all ${
                   filter === "service"
-                    ? "bg-white text-[#0076be] shadow-2xs"
-                    : "text-slate-600 hover:text-slate-900"
+                    ? "bg-[#0076be] text-white shadow-md shadow-[#0076be]/25"
+                    : "bg-white text-slate-700 border border-slate-200/80 hover:border-[#0076be]/40 hover:bg-slate-50"
                 }`}
               >
-                <Wrench size={12} /> Сервисный центр (1)
+                <Wrench size={13} className={filter === "service" ? "text-white" : "text-[#0076be]"} /> Сервисный центр (1)
               </button>
               <button
                 type="button"
                 onClick={() => setFilter("ekb")}
-                className={`rounded-lg px-3 py-1.5 text-xs font-bold transition ${
+                className={`rounded-full px-4 py-2 text-xs font-bold transition-all ${
                   filter === "ekb"
-                    ? "bg-white text-[#0076be] shadow-2xs"
-                    : "text-slate-600 hover:text-slate-900"
+                    ? "bg-[#0076be] text-white shadow-md shadow-[#0076be]/25"
+                    : "bg-white text-slate-700 border border-slate-200/80 hover:border-[#0076be]/40 hover:bg-slate-50"
                 }`}
               >
                 Екатеринбург (4)
@@ -441,10 +440,10 @@ export default function ContactsClient() {
               <button
                 type="button"
                 onClick={() => setFilter("berezovsky")}
-                className={`rounded-lg px-3 py-1.5 text-xs font-bold transition ${
+                className={`rounded-full px-4 py-2 text-xs font-bold transition-all ${
                   filter === "berezovsky"
-                    ? "bg-white text-[#0076be] shadow-2xs"
-                    : "text-slate-600 hover:text-slate-900"
+                    ? "bg-[#0076be] text-white shadow-md shadow-[#0076be]/25"
+                    : "bg-white text-slate-700 border border-slate-200/80 hover:border-[#0076be]/40 hover:bg-slate-50"
                 }`}
               >
                 Берёзовский (1)
@@ -482,19 +481,18 @@ export default function ContactsClient() {
                         {isShefskaya ? <Wrench size={20} /> : <MapPin size={20} />}
                       </div>
                       <div>
-                        <div className="flex flex-wrap items-center gap-2">
-                          <h3 className="font-display text-base sm:text-lg font-bold text-slate-900">
-                            {b.name}
-                          </h3>
-                          {isShefskaya && (
-                            <span className="inline-flex items-center gap-1 rounded-full bg-[#0076be] px-2.5 py-0.5 text-[10px] font-bold text-white uppercase tracking-wider">
-                              Сервисный центр + Магазин · 8 постов
-                            </span>
-                          )}
-                        </div>
-                        <p className="mt-0.5 text-xs sm:text-sm text-slate-500 font-medium">
-                          {b.subtitle}
-                        </p>
+                        <h3 className="font-display text-base sm:text-lg font-bold text-slate-900 leading-tight">
+                          {b.name}
+                        </h3>
+                        {isShefskaya ? (
+                          <span className="mt-1.5 inline-flex items-center rounded-md bg-[#0076be]/10 px-2 py-0.5 text-[11px] font-bold text-[#0076be] uppercase tracking-wide">
+                            Сервис + Магазин · 8 постов
+                          </span>
+                        ) : (
+                          <p className="mt-0.5 text-xs sm:text-sm text-slate-500 font-medium">
+                            {b.subtitle}
+                          </p>
+                        )}
                       </div>
                     </div>
 
@@ -545,40 +543,39 @@ export default function ContactsClient() {
                   </div>
 
                   {/* Действия: Скопировать адрес, Яндекс Карты, 2ГИС, Звонок в сервис */}
-                  <div className="mt-4 flex flex-wrap items-center gap-2 pt-1 border-t border-slate-100">
-                    {/* Кнопка на Яндекс Карты */}
-                    <a
-                      href={b.yandexMapUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 rounded-xl border border-[#0076be]/30 bg-white px-3.5 py-2 text-xs font-bold text-[#0076be] shadow-2xs transition hover:bg-[#0076be] hover:text-white"
-                    >
-                      <MapPin size={14} />
-                      Яндекс Карты
-                      <ExternalLink size={12} className="opacity-70" />
-                    </a>
+                  <div className="mt-5 flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-2 pt-4 border-t border-slate-100">
+                    <div className="flex gap-2 w-full sm:w-auto">
+                      {/* Кнопка на Яндекс Карты */}
+                      <a
+                        href={b.yandexMapUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1 sm:flex-none inline-flex justify-center items-center gap-1.5 rounded-xl border border-[#0076be]/30 bg-white px-3.5 py-2 text-xs font-bold text-[#0076be] shadow-2xs transition hover:bg-[#0076be] hover:text-white"
+                      >
+                        <MapPin size={14} />
+                        Яндекс Карты
+                      </a>
 
-
-
-                    {/* Скопировать адрес для навигатора */}
-                    <button
-                      type="button"
-                      onClick={() => handleCopy(b.name, `addr-${b.id}`)}
-                      className="inline-flex items-center gap-1.5 rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-xs font-medium text-slate-600 transition hover:bg-slate-100 active:scale-95"
-                      title="Скопировать точный адрес"
-                    >
-                      {copiedKey === `addr-${b.id}` ? (
-                        <>
-                          <Check size={13} className="text-emerald-600" />
-                          <span className="text-emerald-700 font-bold">Скопировано!</span>
-                        </>
-                      ) : (
-                        <>
-                          <Copy size={13} />
-                          Скопировать адрес
-                        </>
-                      )}
-                    </button>
+                      {/* Скопировать адрес для навигатора */}
+                      <button
+                        type="button"
+                        onClick={() => handleCopy(b.name, `addr-${b.id}`)}
+                        className="flex-1 sm:flex-none inline-flex justify-center items-center gap-1.5 rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-xs font-medium text-slate-600 transition hover:bg-slate-100 active:scale-95"
+                        title="Скопировать точный адрес"
+                      >
+                        {copiedKey === `addr-${b.id}` ? (
+                          <>
+                            <Check size={13} className="text-emerald-600" />
+                            <span className="text-emerald-700 font-bold">Скопировано!</span>
+                          </>
+                        ) : (
+                          <>
+                            <Copy size={13} />
+                            Копировать
+                          </>
+                        )}
+                      </button>
+                    </div>
 
                     {/* Если Шефская — прямая кнопка в сервис */}
                     {isShefskaya && b.phone && (
@@ -587,10 +584,10 @@ export default function ContactsClient() {
                         phoneHref={SERVICE_PHONE_HREF}
                         title="Позвонить в сервисный центр"
                         subtitle="Шефская, 4б · 8 постов"
-                        className="inline-flex items-center gap-1.5 rounded-xl bg-emerald-600 px-3.5 py-2 text-xs font-bold text-white shadow-2xs transition hover:bg-emerald-700 active:scale-95 ml-auto cursor-pointer"
+                        className="inline-flex justify-center items-center gap-1.5 rounded-xl bg-emerald-600 px-3.5 py-2.5 text-[13px] font-bold text-white shadow-2xs transition hover:bg-emerald-700 active:scale-95 sm:ml-auto cursor-pointer"
                       >
-                        <Phone size={13} />
-                        Записаться в сервисный центр ({b.phone})
+                        <Phone size={14} />
+                        Записаться в сервис
                       </PhoneCallButton>
                     )}
                   </div>
@@ -602,13 +599,16 @@ export default function ContactsClient() {
           {/* Интерактивная карта Yandex справа */}
           <div className="lg:col-span-6">
             <div className="sticky top-28 overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 shadow-sm">
-              <div className="border-b border-slate-200 bg-white px-5 py-3 flex items-center justify-between">
-                <span className="flex items-center gap-2 text-xs sm:text-sm font-bold text-slate-900">
-                  <MapPin size={16} className="text-[#0076be]" /> Карта филиалов в Екатеринбурге и Берёзовском
-                </span>
-                <span className="text-[11px] font-semibold text-slate-500 bg-slate-100 rounded-md px-2 py-0.5">
-                  5 точек сети
-                </span>
+              <div className="border-b border-slate-200 bg-white px-4 py-3.5 sm:px-5 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 sm:gap-4">
+                <div className="flex items-start sm:items-center gap-2.5 text-[13px] sm:text-sm font-bold text-slate-900 leading-snug">
+                  <MapPin size={16} className="text-[#0076be] shrink-0 mt-0.5 sm:mt-0" />
+                  <span>Карта филиалов в Екатеринбурге и Берёзовском</span>
+                </div>
+                <div className="pl-6 sm:pl-0 flex items-center">
+                  <span className="inline-flex items-center whitespace-nowrap text-[11px] font-semibold text-slate-600 bg-slate-100 border border-slate-200/60 rounded-md px-2.5 py-1">
+                    5 точек сети
+                  </span>
+                </div>
               </div>
               <div className="relative h-[480px] sm:h-[620px] w-full bg-slate-100">
                 <iframe

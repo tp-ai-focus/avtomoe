@@ -69,7 +69,7 @@ export function CartDrawer() {
                 </span>
                 <p className="font-display text-lg font-bold">Корзина пуста</p>
                 <p className="text-sm leading-relaxed text-zinc-500">
-                  Добавьте запчасти из каталога — на складе более 30 000 наименований.
+                  Добавьте запчасти из каталога — на складе более 50 000 наименований.
                 </p>
                 <Link href="/catalog" onClick={() => setOpen(false)} className="btn-accent mt-2">
                   Перейти в каталог <ArrowRight size={16} />

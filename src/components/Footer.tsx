@@ -4,14 +4,14 @@ import { MAX_BOT_URL, TELEGRAM_URL, VK_GROUP_URL, MAX_CHAT_URL } from "@/lib/con
 
 export function Footer() {
   return (
-    <footer id="contacts" className="relative mt-20 overflow-hidden bg-gradient-to-r from-[#0094e0] to-[#004b7a] text-white">
-      <div className="wrap grid grid-cols-1 gap-10 py-20 sm:grid-cols-2 lg:grid-cols-3 lg:gap-16">
+    <footer id="contacts" className="relative mt-10 md:mt-20 overflow-hidden bg-gradient-to-r from-[#0094e0] to-[#004b7a] text-white">
+      <div className="wrap grid grid-cols-2 gap-x-4 gap-y-10 pt-10 pb-10 sm:gap-10 sm:py-20 lg:grid-cols-3 lg:gap-16">
         {/* Колонка 1: ПОКУПАТЕЛЯМ */}
         <div>
           <h3 className="font-display text-xs font-semibold uppercase tracking-widest text-white/50">
             Покупателям
           </h3>
-          <ul className="mt-6 space-y-4 text-sm sm:text-[15px]">
+          <ul className="mt-5 space-y-3.5 text-[13px] sm:space-y-4 sm:text-[15px]">
             <li>
               <Link href="/payment" className="text-white/85 hover:text-white hover:underline underline-offset-4 transition-all">
                 Оплата
@@ -45,7 +45,7 @@ export function Footer() {
           <h3 className="font-display text-xs font-semibold uppercase tracking-widest text-white/50">
             О компании
           </h3>
-          <ul className="mt-6 space-y-4 text-sm sm:text-[15px]">
+          <ul className="mt-5 space-y-3.5 text-[13px] sm:space-y-4 sm:text-[15px]">
             <li>
               <Link href="/contacts" className="text-white/85 hover:text-white hover:underline underline-offset-4 transition-all">
                 Контакты
@@ -95,19 +95,19 @@ export function Footer() {
         </div>
 
         {/* Колонка 3: ЧАТ-БОТ И АКТИВНЫЕ КНОПКИ */}
-        <div className="flex flex-col items-start justify-start">
+        <div className="col-span-2 lg:col-span-1 flex flex-col items-start sm:items-center lg:items-start justify-start rounded-2xl bg-white/5 p-6 sm:bg-transparent sm:p-0">
           <h3 className="font-display text-xs font-semibold uppercase tracking-widest text-white/50">
             ОНЛАЙН-ПОМОЩНИК
           </h3>
-          <p className="mt-6 font-display text-lg sm:text-xl leading-snug text-white">
+          <p className="mt-4 sm:mt-6 font-display text-lg sm:text-xl leading-snug text-white sm:text-center lg:text-left">
             <span className="font-black text-yellow-400">Чат-бот</span> уже греет мотор, <br className="hidden sm:inline" />
             чтобы помочь вам!
           </p>
-          <p className="mt-3 text-sm sm:text-[15px] text-white/70">
+          <p className="mt-2 sm:mt-3 text-[13px] sm:text-[15px] text-white/70">
             Задайте вопрос — он ответит
           </p>
 
-          <div className="mt-6 flex flex-col gap-3 w-full sm:w-auto">
+          <div className="mt-6 flex flex-col sm:flex-row lg:flex-col gap-3 w-full sm:w-auto">
             <a
               href={TELEGRAM_URL}
               target="_blank"
@@ -132,7 +132,7 @@ export function Footer() {
 
       {/* Нижняя информационная полоса */}
       <div className="border-t border-white/10">
-        <div className="wrap flex flex-col items-center justify-between gap-4 py-8 text-[13px] text-white/50 md:flex-row">
+        <div className="wrap flex flex-col items-center justify-between gap-3 py-6 text-[12px] sm:text-[13px] text-white/50 md:flex-row">
           <p>© {new Date().getFullYear()} ГК «АвтоМоё», Екатеринбург.</p>
           
           <div className="flex flex-wrap items-center justify-center gap-4">

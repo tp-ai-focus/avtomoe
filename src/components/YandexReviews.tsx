@@ -199,7 +199,7 @@ export const YANDEX_BRANCHES: YandexBranch[] = [
         author: "Евгений Краснов",
         date: "28 марта",
         rating: 5,
-        text: "Всегда покупаю здесь расходники и масло. Огромный склад запчастей на 35 000 позиций, грамотные продавцы — проверяют каждую позицию по каталогам, чтобы точно подошло. Качество запчастей на высоте.",
+        text: "Всегда покупаю здесь расходники и масло. Огромный склад запчастей на 50 000 позиций, грамотные продавцы — проверяют каждую позицию по каталогам, чтобы точно подошло. Качество запчастей на высоте.",
       },
       {
         author: "Наталья Мальцева",
@@ -233,7 +233,7 @@ export function YandexReviews({
     <div className="mt-6 space-y-5">
       {/* 1. Переключатель филиалов: показываем только если не включен singleBranchOnly */}
       {!singleBranchOnly && (
-        <div className="flex flex-wrap items-center gap-2">
+        <div className="flex overflow-x-auto whitespace-nowrap flex-nowrap items-center gap-2 pb-2 scrollbar-hide [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {YANDEX_BRANCHES.map((b) => {
             const active = b.id === activeBranch.id;
             return (
@@ -254,11 +254,13 @@ export function YandexReviews({
         </div>
       )}
 
-      {/* 2. Рейтинг-шапка филиала с кнопками в одну строгую линию */}
+      {/* 2. Рейтинг-шапка филиала */}
       <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 rounded-2xl border border-slate-200/80 bg-gradient-to-r from-slate-50 via-white to-sky-50/30 p-4 sm:p-5 shadow-xs">
-        <div className="flex items-center gap-4 sm:gap-6 min-w-0">
+        
+        {/* Rating and Info */}
+        <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6 min-w-0">
           <div className="flex items-center gap-3 shrink-0">
-            <span className="font-display text-3xl sm:text-4xl font-black text-slate-900 leading-none">
+            <span className="font-display text-4xl sm:text-4xl font-black text-slate-900 leading-none">
               {activeBranch.rating}
             </span>
             <div>
@@ -267,25 +269,27 @@ export function YandexReviews({
                   <Star key={s} size={15} strokeWidth={0} fill="currentColor" />
                 ))}
               </div>
-              <p className="mt-1 text-xs text-zinc-500 font-medium whitespace-nowrap">{activeBranch.stats}</p>
+              <p className="mt-1 text-[11px] sm:text-xs text-zinc-500 font-medium leading-tight max-w-[200px] sm:max-w-none">
+                {activeBranch.stats}
+              </p>
             </div>
           </div>
 
           <div className="h-8 w-px bg-slate-200 shrink-0 hidden sm:block" />
 
-          <div className="text-xs sm:text-sm text-slate-700 truncate">
-            <span className="font-bold text-slate-900">{activeBranch.name}</span>
-            <span className="mx-2 text-zinc-400">·</span>
-            <span className="text-zinc-500">{activeBranch.note}</span>
+          <div className="text-xs sm:text-sm text-slate-700">
+            <span className="font-bold text-slate-900 block sm:inline">{activeBranch.name}</span>
+            <span className="mx-2 text-zinc-400 hidden sm:inline">·</span>
+            <span className="text-zinc-500 block sm:inline mt-0.5 sm:mt-0">{activeBranch.note}</span>
           </div>
         </div>
 
-        <div className="flex items-center gap-2.5 shrink-0">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 shrink-0">
           <a
             href={activeBranch.addReviewUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 rounded-xl border border-[#0076be]/30 bg-white px-3.5 py-2.5 text-xs font-bold text-[#0076be] transition-colors hover:bg-[#0076be]/5 whitespace-nowrap"
+            className="inline-flex items-center justify-center gap-1.5 rounded-xl border border-[#0076be]/30 bg-white px-3.5 py-2.5 text-xs font-bold text-[#0076be] transition-colors hover:bg-[#0076be]/5 w-full sm:w-auto"
           >
             <MessageSquarePlus size={14} />
             <span>Оставить отзыв</span>
@@ -295,7 +299,7 @@ export function YandexReviews({
             href={activeBranch.mapsUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 rounded-xl bg-[#0076be] px-3.5 py-2.5 text-xs font-bold text-white shadow-sm shadow-[#0076be]/20 transition-colors hover:bg-[#0062a0] whitespace-nowrap"
+            className="inline-flex items-center justify-center gap-1.5 rounded-xl bg-[#0076be] px-3.5 py-2.5 text-xs font-bold text-white shadow-sm shadow-[#0076be]/20 transition-colors hover:bg-[#0062a0] w-full sm:w-auto"
           >
             <span>Все отзывы на Яндекс Картах</span>
             <ExternalLink size={13} />
@@ -303,12 +307,12 @@ export function YandexReviews({
         </div>
       </div>
 
-      {/* 3. Сетка отзывов по 2 в ряду — идеальное заполнение без пустот */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      {/* 3. Горизонтальный скролл отзывов */}
+      <div className="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 -mx-4 px-4 sm:mx-0 sm:px-0 scrollbar-hide [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
         {activeBranch.reviews.map((r) => (
           <div
             key={r.author}
-            className="group flex flex-col justify-between rounded-2xl border border-slate-200/80 bg-white p-5 sm:p-6 shadow-xs transition-all duration-200 hover:-translate-y-0.5 hover:border-[#0076be]/30 hover:shadow-md hover:shadow-[#0076be]/5"
+            className="group flex w-[85vw] sm:w-[380px] md:w-[400px] shrink-0 snap-start flex-col justify-between rounded-2xl border border-slate-200/80 bg-white p-5 sm:p-6 shadow-xs transition-all duration-200 hover:-translate-y-0.5 hover:border-[#0076be]/30 hover:shadow-md hover:shadow-[#0076be]/5"
           >
             <div>
               {/* Шапка отзыва */}
