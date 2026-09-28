@@ -162,14 +162,6 @@ export function Header() {
                   >
                     <MessageCircle size={15} fill="#7c3aed" className="text-[#7c3aed]" /> Max
                   </a>
-                  <a
-                    href={TELEGRAM_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-1.5 rounded-full bg-white px-3.5 py-1.5 text-[12px] font-bold text-zinc-700 shadow-sm transition hover:-translate-y-px hover:bg-zinc-100"
-                  >
-                    <Send size={15} fill="#2aabee" className="text-[#2aabee]" /> Telegram
-                  </a>
                 </div>
               </div>
 
@@ -275,14 +267,6 @@ export function Header() {
                   className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-[#7c3aed] px-4 py-3 font-bold text-white"
                 >
                   <MessageCircle size={18} /> Max
-                </a>
-                <a
-                  href={TELEGRAM_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-[#2aabee] px-4 py-3 font-bold text-white"
-                >
-                  <Send size={18} /> Telegram
                 </a>
               </div>
               <div className="flex flex-col gap-1">

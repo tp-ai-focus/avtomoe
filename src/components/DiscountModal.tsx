@@ -226,8 +226,8 @@ export function DiscountModal({ isOpen, onClose, type, initialDescription = "" }
                   <div className="h-px flex-1 bg-white/15" />
                 </div>
 
-                {/* Три иконки мессенджеров */}
-                <div className="grid grid-cols-3 gap-2.5">
+                {/* Иконки мессенджеров (MAX и Позвонить) */}
+                <div className="grid grid-cols-2 gap-2.5">
                   {/* MAX */}
                   <a 
                     href={type === "service" ? MAX_SERVICE_CHAT_URL : MAX_BOT_URL} 
@@ -240,20 +240,6 @@ export function DiscountModal({ isOpen, onClose, type, initialDescription = "" }
                     <svg width="24" height="24" viewBox="0 0 28 28" fill="none">
                       <path d="M14 2C7.373 2 2 7.149 2 13.5c0 2.37.72 4.573 1.956 6.4L2.5 25l5.317-1.383A12.14 12.14 0 0014 25c6.627 0 12-5.149 12-11.5S20.627 2 14 2z" fill="white" fillOpacity="0.9"/>
                       <circle cx="14" cy="13.5" r="3.5" fill="#6B3AC2"/>
-                    </svg>
-                  </a>
-
-                  {/* Telegram */}
-                  <a 
-                    href={TELEGRAM_URL} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center rounded-xl py-3 transition hover:brightness-110 shadow-md"
-                    style={{ background: "#29A8E0" }} 
-                    title="Telegram"
-                  >
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                      <path d="M21.5 4.5L2.5 11.5l6 2 2 6 3-4 5 4 3-15z" fill="white"/>
                     </svg>
                   </a>
 

@@ -239,15 +239,6 @@ export default function VacanciesPage() {
                 <span>{PHONE_DISPLAY}</span>
               </a>
               <a
-                href={TELEGRAM_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#29A8E0] px-5 py-3 text-xs font-bold uppercase tracking-wider text-white shadow-md transition hover:brightness-110 hover:scale-[1.02]"
-              >
-                <Send size={15} />
-                <span>Telegram</span>
-              </a>
-              <a
                 href={MAX_CHAT_URL}
                 target="_blank"
                 rel="noopener noreferrer"

@@ -177,17 +177,7 @@ export function ServiceModal({ isOpen, onClose, title = "Заявка на се�
             </div>
 
             {/* Яркие фирменные кнопки с иконками */}
-            <div className="grid grid-cols-3 gap-2">
-              <a
-                href={TELEGRAM_URL}
-                target="_blank"
-                rel="noreferrer"
-                className="flex items-center justify-center gap-1.5 rounded-xl bg-[#29A8E0] py-2.5 text-xs font-bold text-white shadow-md shadow-[#29A8E0]/25 transition hover:brightness-110 hover:scale-[1.02]"
-                title="Заказать в Telegram"
-              >
-                <Send size={15} className="text-white shrink-0" />
-                <span className="text-[11px] font-bold">Telegram</span>
-              </a>
+            <div className="grid grid-cols-2 gap-2">
 
               <a
                 href={MAX_SERVICE_CHAT_URL}

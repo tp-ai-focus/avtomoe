@@ -178,8 +178,8 @@ export function ServiceForm() {
         <div className="h-px flex-1 bg-white/20"></div>
       </div>
 
-      {/* 3 иконки: MAX (чат сервиса), Telegram, Звонок */}
-      <div className="grid grid-cols-3 gap-2">
+      {/* 2 иконки: MAX (чат сервиса), Звонок */}
+      <div className="grid grid-cols-2 gap-2">
         {/* MAX чат сервиса 8 999 564 20 42 */}
         <a
           href={MAX_SERVICE_CHAT_URL}
@@ -195,25 +195,6 @@ export function ServiceForm() {
               fillOpacity="0.9"
             />
             <circle cx="14" cy="13.5" r="3.5" fill="#7c3aed" />
-          </svg>
-        </a>
-
-        {/* Telegram */}
-        <a
-          href={TELEGRAM_URL}
-          target="_blank"
-          rel="noreferrer"
-          className="flex items-center justify-center rounded-lg bg-[#29A8E0] py-2.5 text-white shadow-md shadow-[#29A8E0]/25 transition hover:brightness-110 hover:scale-[1.02]"
-          title="Telegram"
-        >
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-            <path
-              d="M21.5 2L2 10.5l7 2.5 2.5 7 3-4 5 4 2-18z"
-              stroke="white"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
           </svg>
         </a>
 

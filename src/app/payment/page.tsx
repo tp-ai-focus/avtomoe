@@ -66,15 +66,6 @@ export default function PaymentPage() {
                 MAX
               </a>
               <a
-                href={TELEGRAM_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex w-full sm:flex-1 items-center justify-center gap-2 rounded-xl bg-[#2aabee] px-4 py-3 text-sm font-bold text-white shadow-sm transition hover:bg-[#2299d6] active:scale-95"
-              >
-                <Send size={16} />
-                Telegram
-              </a>
-              <a
                 href={VK_CHAT_URL}
                 target="_blank"
                 rel="noopener noreferrer"
