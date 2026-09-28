@@ -1,2 +1,2 @@
-:HL["/avtomoe/_next/static/chunks/0k2vct6q32.ys.css","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"product","param":null,"prefetchHints":0,"slots":{"children":{"name":"slug","param":{"type":"d","key":"filtr-maslyanyy-mann-w-712-95","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"rdhigk2YJjHPfvh5_UqHb"}
+:HL["/avtomoe/_next/static/chunks/138o8id4y907l.css","style"]
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"product","param":null,"prefetchHints":0,"slots":{"children":{"name":"slug","param":{"type":"d","key":"filtr-maslyanyy-mann-w-712-95","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"_EdDIBOolR0jJlXeLEqt4"}
