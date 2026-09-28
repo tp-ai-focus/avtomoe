@@ -131,82 +131,84 @@ export default async function HomePage() {
           </Reveal>
 
           <Reveal delay={0.34}>
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-4 sm:gap-6 border-t border-white/15 pt-6">
-
-              {/* 50 000+ */}
-              <div className="flex items-center gap-2">
-                <span className="font-display text-xl font-bold tracking-tight text-white md:text-2xl">
-                  50 000+
-                </span>
-                <span className="text-[10px] font-medium leading-[1.1] text-white/60 uppercase tracking-wide md:text-[11px]">
-                  запчастей<br />в наличии
-                </span>
-              </div>
-
-              {/* Разделитель */}
-              <div className="h-6 w-px bg-white/20" />
-
-              {/* 2ГИС 4,9 */}
-              <a
-                href="https://2gis.ru/ekaterinburg/search/Автояпонец%20Сахарова%2C%20107%2F2/firm/70000001110998814?m=60.500637%2C56.792667%2F16.87%2Fp%2F0.36%2Fr%2F-129.05"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-1.5 transition-opacity hover:opacity-80"
-                title="Наш рейтинг на 2ГИС"
-              >
-                <Star size={14} strokeWidth={0} fill="#ffcc00" className="text-[#ffcc00]" />
-                <span className="font-display text-lg font-semibold text-white md:text-xl">4,9</span>
-                <svg width="18" height="18" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="shrink-0 overflow-hidden rounded-md">
-                  <rect width="32" height="32" fill="#FFB700" />
-                  <path d="M0 20L32 15V32H0V20Z" fill="#58C22E" />
-                  <path d="M-2 21L34 14" stroke="white" strokeWidth="2.5" />
-                  <path d="M16 26s-5.5-6-5.5-10.5C10.5 11.46 12.96 9 16 9s5.5 2.46 5.5 6.5S16 26 16 26z" fill="#1b82f6" stroke="white" strokeWidth="2.5"/>
-                </svg>
-              </a>
-
-              {/* Разделитель */}
-              <div className="h-6 w-px bg-white/20" />
-
-              {/* Яндекс 5,0 */}
-              <a
-                href="https://yandex.ru/maps/org/avtomoyo/132887448531/?ll=60.776537%2C56.900037&mode=search&sll=60.769089%2C56.899720&sspn=0.019741%2C0.007937&text=%D0%90%D0%B2%D1%82%D0%BE%D0%AF%D0%BF%D0%BE%D0%BD%D0%B5%D1%86%20%D0%B1%D0%B5%D1%80%D0%B5%D0%B7%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%20%D0%BF%D1%80%D0%B8%D0%B2%D0%BE%D0%B7&z=15.13"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-1.5 transition-opacity hover:opacity-80"
-                title="Наш рейтинг на Яндекс Картах"
-              >
-                <div className="flex gap-0.5">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <Star key={i} size={12} strokeWidth={0} fill="#ffcc00" className="text-[#ffcc00]" />
-                  ))}
+            <div className="mt-8 flex justify-center border-t border-white/15 pt-6">
+              <div className="grid grid-cols-2 gap-x-6 gap-y-5 place-items-start sm:flex sm:flex-wrap sm:items-center sm:justify-center sm:gap-6">
+                
+                {/* 50 000+ */}
+                <div className="flex items-center gap-2">
+                  <span className="font-display text-xl font-bold tracking-tight text-white md:text-2xl">
+                    50 000+
+                  </span>
+                  <span className="text-[10px] font-medium leading-[1.1] text-white/60 uppercase tracking-wide md:text-[11px]">
+                    запчастей<br />в наличии
+                  </span>
                 </div>
-                <span className="font-display text-lg font-semibold text-white md:text-xl">5,0</span>
-              </a>
 
-              {/* Разделитель */}
-              <div className="h-6 w-px bg-white/20" />
+                {/* Разделитель */}
+                <div className="hidden h-6 w-px bg-white/20 sm:block" />
 
-              {/* Яндекс — Хорошее место */}
-              <a
-                href="https://yandex.ru/maps/org/avtomoyo/218269267792/?ll=60.640270%2C56.889493&z=16"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-1.5 transition-opacity hover:opacity-80"
-                title="Хорошее место 2026 на Яндекс Картах"
-              >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="shrink-0">
-                  <path d="M3 15c0 0-2-6 3-8 0 0-3 5-1 8 0 0-1 1-2 0z" fill="#ffcc00"/>
-                  <path d="M4.5 18c0 0-1-4 2-5 0 0-2 3-1 4.5 0 0-.5.5-1 .5z" fill="#ffcc00"/>
-                  <path d="M21 15c0 0 2-6-3-8 0 0 3 5 1 8 0 0 1 1 2 0z" fill="#ffcc00"/>
-                  <path d="M19.5 18c0 0 1-4-2-5 0 0 2 3 1 4.5 0 0 .5.5 1 .5z" fill="#ffcc00"/>
-                  <path d="M12 22s-6-7-6-12.5C6 6.46 8.69 4 12 4s6 2.46 6 5.5S12 22 12 22z" fill="#ff3333"/>
-                  <circle cx="12" cy="9.5" r="3" fill="white"/>
-                </svg>
-                <span className="text-[11px] font-medium text-white/80 uppercase tracking-wider">
-                  Хорошее место
-                </span>
-              </a>
+                {/* 2ГИС 4,9 */}
+                <a
+                  href="https://2gis.ru/ekaterinburg/search/Автояпонец%20Сахарова%2C%20107%2F2/firm/70000001110998814?m=60.500637%2C56.792667%2F16.87%2Fp%2F0.36%2Fr%2F-129.05"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 transition-opacity hover:opacity-80"
+                  title="Наш рейтинг на 2ГИС"
+                >
+                  <Star size={14} strokeWidth={0} fill="#ffcc00" className="text-[#ffcc00]" />
+                  <span className="font-display text-lg font-semibold text-white md:text-xl">4,9</span>
+                  <svg width="18" height="18" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="shrink-0 overflow-hidden rounded-md">
+                    <rect width="32" height="32" fill="#FFB700" />
+                    <path d="M0 20L32 15V32H0V20Z" fill="#58C22E" />
+                    <path d="M-2 21L34 14" stroke="white" strokeWidth="2.5" />
+                    <path d="M16 26s-5.5-6-5.5-10.5C10.5 11.46 12.96 9 16 9s5.5 2.46 5.5 6.5S16 26 16 26z" fill="#1b82f6" stroke="white" strokeWidth="2.5"/>
+                  </svg>
+                </a>
 
+                {/* Разделитель */}
+                <div className="hidden h-6 w-px bg-white/20 sm:block" />
+
+                {/* Яндекс 5,0 */}
+                <a
+                  href="https://yandex.ru/maps/org/avtomoyo/132887448531/?ll=60.776537%2C56.900037&mode=search&sll=60.769089%2C56.899720&sspn=0.019741%2C0.007937&text=%D0%90%D0%B2%D1%82%D0%BE%D0%AF%D0%BF%D0%BE%D0%BD%D0%B5%D1%86%20%D0%B1%D0%B5%D1%80%D0%B5%D0%B7%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%20%D0%BF%D1%80%D0%B8%D0%B2%D0%BE%D0%B7&z=15.13"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 transition-opacity hover:opacity-80"
+                  title="Наш рейтинг на Яндекс Картах"
+                >
+                  <div className="flex gap-0.5">
+                    {Array.from({ length: 5 }).map((_, i) => (
+                      <Star key={i} size={12} strokeWidth={0} fill="#ffcc00" className="text-[#ffcc00]" />
+                    ))}
+                  </div>
+                  <span className="font-display text-lg font-semibold text-white md:text-xl">5,0</span>
+                </a>
+
+                {/* Разделитель */}
+                <div className="hidden h-6 w-px bg-white/20 sm:block" />
+
+                {/* Яндекс — Хорошее место */}
+                <a
+                  href="https://yandex.ru/maps/org/avtomoyo/218269267792/?ll=60.640270%2C56.889493&z=16"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 transition-opacity hover:opacity-80"
+                  title="Хорошее место 2026 на Яндекс Картах"
+                >
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="shrink-0">
+                    <path d="M3 15c0 0-2-6 3-8 0 0-3 5-1 8 0 0-1 1-2 0z" fill="#ffcc00"/>
+                    <path d="M4.5 18c0 0-1-4 2-5 0 0-2 3-1 4.5 0 0-.5.5-1 .5z" fill="#ffcc00"/>
+                    <path d="M21 15c0 0 2-6-3-8 0 0 3 5 1 8 0 0 1 1 2 0z" fill="#ffcc00"/>
+                    <path d="M19.5 18c0 0 1-4-2-5 0 0 2 3 1 4.5 0 0 .5.5 1 .5z" fill="#ffcc00"/>
+                    <path d="M12 22s-6-7-6-12.5C6 6.46 8.69 4 12 4s6 2.46 6 5.5S12 22 12 22z" fill="#ff3333"/>
+                    <circle cx="12" cy="9.5" r="3" fill="white"/>
+                  </svg>
+                  <span className="text-[11px] font-medium text-white/80 uppercase tracking-wider">
+                    Хорошее место
+                  </span>
+                </a>
+
+              </div>
             </div>
           </Reveal>
         </div>
