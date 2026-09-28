@@ -10,9 +10,10 @@ interface DiscountModalProps {
   isOpen: boolean;
   onClose: () => void;
   type: "parts" | "service";
+  initialDescription?: string;
 }
 
-export function DiscountModal({ isOpen, onClose, type }: DiscountModalProps) {
+export function DiscountModal({ isOpen, onClose, type, initialDescription = "" }: DiscountModalProps) {
   const [submitted, setSubmitted] = useState(false);
   const [agreed, setAgreed] = useState(true);
   const [mounted, setMounted] = useState(false);
@@ -20,7 +21,7 @@ export function DiscountModal({ isOpen, onClose, type }: DiscountModalProps) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [carInfo, setCarInfo] = useState("");
-  const [description, setDescription] = useState("");
+  const [description, setDescription] = useState(initialDescription);
   const overlayRef = useRef<HTMLDivElement>(null);
 
   const title = type === "parts" ? "Получить скидку на запчасти" : "Получить скидку на ремонт";
@@ -32,6 +33,7 @@ export function DiscountModal({ isOpen, onClose, type }: DiscountModalProps) {
 
   useEffect(() => {
     if (!isOpen) return;
+    setDescription(initialDescription);
     const handler = (e: KeyboardEvent) => { if (e.key === "Escape") onClose(); };
     document.addEventListener("keydown", handler);
     document.body.style.overflow = "hidden";

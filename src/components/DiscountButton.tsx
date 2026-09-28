@@ -4,7 +4,11 @@ import { useState } from "react";
 import { Calculator } from "lucide-react";
 import { DiscountModal } from "./DiscountModal";
 
-export function DiscountButton() {
+interface DiscountButtonProps {
+  serviceName?: string;
+}
+
+export function DiscountButton({ serviceName }: DiscountButtonProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -15,7 +19,12 @@ export function DiscountButton() {
       >
         <Calculator size={14} /> Узнать цену
       </button>
-      <DiscountModal isOpen={isOpen} onClose={() => setIsOpen(false)} type="service" />
+      <DiscountModal 
+        isOpen={isOpen} 
+        onClose={() => setIsOpen(false)} 
+        type="service" 
+        initialDescription={serviceName ? `Интересует: ${serviceName}` : ""}
+      />
     </>
   );
 }

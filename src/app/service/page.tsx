@@ -292,7 +292,7 @@ export default async function ServicePage() {
                   </div>
 
                   <div className="mt-5 flex flex-col gap-2">
-                    <DiscountButton />
+                    <DiscountButton serviceName={s.title} />
                     <PhoneCallButton
                       phoneDisplay={SERVICE_PHONE_DISPLAY}
                       phoneHref={SERVICE_PHONE_HREF}
