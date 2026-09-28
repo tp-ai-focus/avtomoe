@@ -1,2 +1,2 @@
-:HL["/avtomoe/_next/static/chunks/0uu.f0rl524a-.css","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"legal","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"8Q5RyYaFwwE2W84pA9dgE"}
+:HL["/avtomoe/_next/static/chunks/0divbppkqvi.k.css","style"]
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"legal","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"TqY017tXciSUcu4bbc5K1"}
