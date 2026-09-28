@@ -186,7 +186,7 @@ export function ShopMapSection() {
                   rel="noreferrer"
                   className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#ffcc00] py-3.5 text-xs font-extrabold uppercase tracking-wide text-slate-950 shadow-md shadow-amber-500/20 transition-all hover:bg-[#ffe040] hover:scale-[1.01] active:scale-[0.99]"
                 >
-                  <Navigation size={16} className="shrink-0 text-slate-950" />
+                  <Navigation size={16} className="shrink-0 text-white fill-white" />
                   <span>Маршрут в Яндекс Навигаторе</span>
                 </a>
               </div>

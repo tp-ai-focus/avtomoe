@@ -584,9 +584,9 @@ export default async function ServicePage() {
                 <a 
                   href="https://yandex.ru/maps/54/yekaterinburg/search/%D0%A8%D0%B5%D1%84%D1%81%D0%BA%D0%B0%D1%8F%2C%204%D0%B1%20%D0%90%D0%B2%D1%82%D0%BE%D0%9C%D0%BE%D0%B5/?ll=60.640270%2C56.889493&sll=60.597636%2C56.837435&sspn=0.315857%2C0.123824&z=16.72"
                   target="_blank"
-                  className="flex w-full items-center justify-center gap-2 rounded-lg border border-slate-200 bg-transparent py-2.5 text-[10px] font-bold uppercase tracking-wide text-slate-700 transition hover:border-[#ffcc00] hover:bg-[#ffcc00]/10 hover:text-black"
+                  className="flex w-full items-center justify-center gap-2 rounded-lg bg-[#ffcc00] py-2.5 text-[10px] font-bold uppercase tracking-wide text-slate-950 transition hover:bg-[#e6b800]"
                 >
-                  <Navigation size={15} className="text-[#eab308]" />
+                  <Navigation size={15} className="text-white fill-white" />
                   Яндекс Навигатор
                 </a>
               </div>
