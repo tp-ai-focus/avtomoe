@@ -25,7 +25,7 @@ export function CategoryCardsGrid({ categories }: CategoryCardsGridProps) {
           <div
             key={c.slug}
             onClick={() => setSelectedCategory(c.name)}
-            className="group relative flex flex-col justify-end h-72 sm:h-80 overflow-hidden rounded-[24px] border border-sky-400/30 bg-gradient-to-br from-[#0076be] via-[#005a92] to-[#0a1e3b] p-6 shadow-xl shadow-sky-950/20 transition-all duration-300 hover:shadow-2xl hover:shadow-sky-500/25 hover:border-sky-300/60 hover:-translate-y-1.5 cursor-pointer"
+            className="group relative flex flex-col justify-end h-72 sm:h-80 overflow-hidden rounded-[24px] border border-sky-400/30 bg-gradient-to-br from-[#0076be] via-[#005a92] to-[#0a1e3b] p-6 shadow-xl shadow-sky-950/20 transition-all duration-300 hover:shadow-2xl hover:shadow-sky-500/25 hover:border-sky-300/60 hover:-translate-y-1.5 cursor-pointer [transform:translateZ(0)]"
           >
             {/* Фоновое изображение со стильным режимом наложения */}
             <Image

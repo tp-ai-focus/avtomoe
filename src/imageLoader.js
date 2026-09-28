@@ -1,7 +1,8 @@
-export default function imageLoader({ src }) {
+export default function imageLoader({ src, width, quality }) {
   const basePath = process.env.NODE_ENV === 'production' ? '/avtomoe' : '';
+  let url = src;
   if (src && src.startsWith('/')) {
-    return `${basePath}${src}`;
+    url = `${basePath}${src}`;
   }
-  return src;
+  return `${url}?w=${width}&q=${quality || 75}`;
 }

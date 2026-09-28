@@ -255,7 +255,7 @@ export default async function ServicePage() {
         <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {whatWeDoServices.map((s, i) => (
             <Reveal key={s.id} delay={(i % 3) * 0.07}>
-              <div className="group relative flex h-full overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-sm transition-all hover:shadow-xl hover:border-slate-200">
+              <div className="group relative flex h-full overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-sm transition-all hover:shadow-xl hover:border-slate-200 [transform:translateZ(0)]">
                 {/* ХИТ Badge */}
                 {s.hit && (
                   <div className="absolute right-0 top-0 z-10 flex items-center justify-center rounded-bl-xl bg-red-500 px-3 py-1 font-display text-[10px] font-bold tracking-wider text-white uppercase shadow-sm">

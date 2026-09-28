@@ -410,7 +410,7 @@ export default async function HomePage() {
             <Reveal key={p.title} delay={(i % 4) * 0.07}>
               <div className="group card h-full overflow-hidden transition hover:border-accent-500/25 !rounded-md">
                 {/* Место под макет */}
-                <div className="relative aspect-square overflow-hidden bg-[#0076be]/10">
+                <div className="relative aspect-square overflow-hidden bg-[#0076be]/10 [transform:translateZ(0)]">
                   {p.img && (
                     <Image
                       src={p.img}
